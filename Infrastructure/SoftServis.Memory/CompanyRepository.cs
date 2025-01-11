@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SoftServis.Memory
+﻿namespace Memory
 {
-    public class Class1
+    public class CompanyRepository : ICompanyRepositore
     {
     }
 }
