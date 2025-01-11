@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SoftServis
+namespace SoftServis.Memory
 {
-    public interface ICompanyRepositore
+    public class Class1
     {
-        public Сompany[] GetAllCompanies(string title);
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SoftServis
 {
-    internal interface Interface1
+    internal interface IHuman
     {
+        public string Name { get; set; }
+        public string SurName { get; set; }
+        public string Patronymic { get; set; }
     }
 }

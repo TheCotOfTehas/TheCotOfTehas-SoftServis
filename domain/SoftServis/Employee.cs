@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace SoftServis
 {
-    internal class Employee
+    internal class Employee : Human
     {
+        public int Id { get; set; }
+        public int IdentificationNumber {  get; set; }
+        public Address ResidentialAddress { get; set; }
+        public string PositionAtWork { get; set; }
+
+        public Employee(int id) 
+        {
+            this.Id = id;
+        }
     }
 }
