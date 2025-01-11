@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SoftServis
 {
-    public class Сompany
+    public class Company
     {
         public string Name { get; set; }
         public string SurName { get; set; }

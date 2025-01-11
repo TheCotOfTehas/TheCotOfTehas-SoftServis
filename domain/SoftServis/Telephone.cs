@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace SoftServis
 {
-    public interface ICompanyRepositore
+    internal class Telephone
     {
-        public Company[] GetAllCompanies(string title);
     }
 }
