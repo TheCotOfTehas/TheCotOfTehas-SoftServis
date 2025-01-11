@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SoftServis
 {
-    internal class Employee : Human
+    public class Employee : Human
     {
         public int Id { get; set; }
         public int IdentificationNumber {  get; set; }

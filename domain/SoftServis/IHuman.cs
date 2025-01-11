@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SoftServis
 {
-    internal interface IHuman
+    public interface IHuman
     {
         public string Name { get; set; }
         public string SurName { get; set; }

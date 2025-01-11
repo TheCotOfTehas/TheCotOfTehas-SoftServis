@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftServis", "domain\SoftSe
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{31EBD01E-AAFB-4EA8-9A9C-D2FA86C47140}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.Memory", "Infrastructure\Company.Memory\Company.Memory.csproj", "{68747448-EA5A-4AA9-AD7A-20084D472E1F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,16 +19,11 @@ Global
 		{9C1B2D5B-0190-4E76-B0C7-5FD9F0CB2EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C1B2D5B-0190-4E76-B0C7-5FD9F0CB2EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C1B2D5B-0190-4E76-B0C7-5FD9F0CB2EDF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68747448-EA5A-4AA9-AD7A-20084D472E1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68747448-EA5A-4AA9-AD7A-20084D472E1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68747448-EA5A-4AA9-AD7A-20084D472E1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68747448-EA5A-4AA9-AD7A-20084D472E1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9C1B2D5B-0190-4E76-B0C7-5FD9F0CB2EDF} = {5319380A-6A32-48D7-9A18-233C4AE5E3DB}
-		{68747448-EA5A-4AA9-AD7A-20084D472E1F} = {31EBD01E-AAFB-4EA8-9A9C-D2FA86C47140}
 	EndGlobalSection
 EndGlobal
