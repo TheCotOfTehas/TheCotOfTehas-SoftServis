@@ -8,8 +8,12 @@ namespace SoftServis
 {
     public class Company
     {
-        public string Name { get; set; }
-        public string SurName { get; set; }
-        public string Patronymic { get; set; }
+        public int Id { get; set; }
+        public string LongName { get; set; }
+        public string ShortName { get; set; }
+        public string Description { get; set; }
+        public Address AddresCompany { get; set; }
+        public Telephone[] Telephones {  get; set; }
+        public Mail[] Mailes { get; set; }
     }
 }

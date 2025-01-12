@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SoftServis
 {
-    internal class Telephone
+    public class Telephone
     {
+        public Employee EmployeeName { get; set; }
+        public int Numder {  get; set; }
+        public string Name { get; set; }
     }
 }
