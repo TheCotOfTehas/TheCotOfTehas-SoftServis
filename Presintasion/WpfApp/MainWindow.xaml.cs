@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
+using SoftServis;
+using SoftServis.Memory;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +19,60 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        DataContext db = new DataContext();
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+            db.Database.EnsureCreated();
+
+            //List<Company> сompanies = 
+            //[
+            //    new Company()
+            //    {
+            //        Id = 0,
+            //        LongName = "имяДлинное1",
+            //        ShortName = "имяКороткое1",
+            //        Description = "Описание1",
+            //        AddresCompany = new Address(),
+            //        Telephones = new Telephone[5],
+            //        Mailes = new Mail[5]
+            //    },
+            //    new Company()
+            //    {
+            //        Id = 1,
+            //        LongName = "имяДлинное2",
+            //        ShortName = "имяКороткое2",
+            //        Description = "Описание2",
+            //        AddresCompany = new Address(),
+            //        Telephones = new Telephone[5],
+            //        Mailes = new Mail[5]
+            //    },
+            //    new Company()
+            //    {
+            //        Id = 2,
+            //        LongName = "имяДлинное3",
+            //        ShortName = "имяКороткое3",
+            //        Description = "Описание3",
+            //        AddresCompany = new Address(),
+            //        Telephones = new Telephone[5],
+            //        Mailes = new Mail[5]
+            //    }
+            //];
+
+            //db.AddRange(сompanies);
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            db.Database.EnsureCreated();
+            db.CompanyDB.Load();
+            DataContext = db.CompanyDB.Local.ToObservableCollection();
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            UserWindows mainWindow = new UserWindows(new Company());
         }
     }
 }
