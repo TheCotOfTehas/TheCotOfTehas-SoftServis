@@ -8,5 +8,6 @@ namespace SoftServis
 {
     public class Address
     {
+        public int Id { get; set; }
     }
 }

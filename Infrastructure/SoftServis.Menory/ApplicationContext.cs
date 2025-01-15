@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace SoftServis.Memory
 {
-    public class DataContext : DbContext
+    public class ApplicationContext : DbContext
     {
-        public DbSet<Company> CompanyDB { get; set; } = null;
+        public DbSet<Company> companies { get; set; } = null;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL");
-            base.OnConfiguring(optionsBuilder);
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb; Database=helloappdb; Trusted_Connection=True;");
+            //base.OnConfiguring(optionsBuilder);
         }
     }
 }

@@ -8,11 +8,11 @@ namespace SoftServis.Memory
 {
     public class DataServis
     {
-        DataContext context;
+        ApplicationContext context;
 
         public DataServis()
         {
-            context = new DataContext();
+            context = new ApplicationContext();
         }
     }
 }

@@ -8,6 +8,7 @@ namespace SoftServis
 {
     public class Mail
     {
+        public int Id {  get; set; }
         public Employee EmployeeName { get; set; }
         public string MailName { get; set; }
         public string Name { get; set; }
