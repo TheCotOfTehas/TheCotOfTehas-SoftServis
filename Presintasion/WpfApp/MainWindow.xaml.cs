@@ -20,7 +20,9 @@ namespace WpfApp
     public partial class MainWindow : Window
     {
         ApplicationContext db = new ApplicationContext();
-        public MainWindow()
+
+        private readonly DataServis dataServis;
+        public MainWindow(DataServis dataServis)
         {
             InitializeComponent();
             Loaded += MainWindow_Loaded;
