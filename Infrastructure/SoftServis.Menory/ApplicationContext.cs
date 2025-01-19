@@ -13,7 +13,7 @@ namespace SoftServis.Memory
         public DbSet<Company> companies { get; set; } = null;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb; Database=helloappdb; Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb; Database=dbCompany; Trusted_Connection=True;");
             //base.OnConfiguring(optionsBuilder);
         }
     }

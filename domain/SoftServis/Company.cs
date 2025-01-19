@@ -14,7 +14,7 @@ namespace SoftServis
         public string ShortName { get; set; }
         public string Description { get; set; }
         public Address AddresCompany { get; set; }
-        public Telephone[] Telephones {  get; set; }
-        public Mail[] Mailes { get; set; }
+        public List<Telephone> Telephones { get; set; }
+        public List<Mail> Mailes { get; set; }
     }
 }
