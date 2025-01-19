@@ -78,5 +78,14 @@ namespace WpfApp
         {
            //User mainWindow = new user(new Company());
         }
+
+        private void GetEmail_Click(object sender, RoutedEventArgs e)
+        {
+            ExecuteReport();
+        }
+
+        private void ExecuteReport()
+        {
+            DataGrid.ItemsSourceProperty = dataServis.GetAllMailCompany();
     }
 }

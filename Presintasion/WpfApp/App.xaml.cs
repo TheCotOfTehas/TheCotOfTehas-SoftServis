@@ -17,7 +17,6 @@ namespace WpfApp
         {
             serviceCollection = new ServiceCollection();
             serviceCollection.AddSingleton<DataServis>();    
-            //serviceProvider = new ServiceProvider(serviceCollection);
             serviceCollection.AddScoped<MainWindow>();
             serviceProvider = serviceCollection.BuildServiceProvider();
             base.OnStartup(e);
