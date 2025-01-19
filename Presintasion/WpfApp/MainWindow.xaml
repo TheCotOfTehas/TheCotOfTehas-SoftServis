@@ -7,6 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="1"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Label FontWeight="Bold" FontSize="18" VerticalAlignment="Center">Список emails компании</Label>
+        <Button Grid.Row ="1" Width="200" Margin="300,0,300,0">Вывести emails commpany</Button>
+        <DataGrid Grid.Row="2"></DataGrid>
+        <TextBox Width="200" Grid.Row="3" Background="Blue"></TextBox>
     </Grid>
 </Window>
