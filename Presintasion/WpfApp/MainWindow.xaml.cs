@@ -32,34 +32,30 @@ namespace WpfApp
             [
                 new Company()
                 {
-                    //Id = 0,
                     LongName = "имяДлинное1",
                     ShortName = "имяКороткое1",
                     Description = "Описание1",
                     AddresCompany = new Address(),
                     Telephones = new List<Telephone>(),
-                    Mailes = new List<Mail>()
+                    Mailes = new List<Mail>(){ new Mail() {MailName = "Mail1@mail.ru" } }
                 },
                 new Company()
                 {
-                   // Id = 1,
-
                     LongName = "имяДлинное2",
                     ShortName = "имяКороткое2",
                     Description = "Описание2",
                     AddresCompany = new Address(),
                     Telephones = new List<Telephone>(),
-                    Mailes = new List<Mail>()
+                    Mailes = new List<Mail>(){ new Mail() {MailName = "Mail2@mail.ru" } }
                 },
                 new Company()
                 {
-                    //Id = 2,
                     LongName = "имяДлинное3",
                     ShortName = "имяКороткое3",
                     Description = "Описание3",
                     AddresCompany = new Address(),
                     Telephones = new List<Telephone>(),
-                    Mailes = new List<Mail>()
+                    Mailes = new List<Mail>(){ new Mail() {MailName = "Mail3@mail.ru" } }
                 }
             ];
 
@@ -86,6 +82,20 @@ namespace WpfApp
 
         private void ExecuteReport()
         {
-            DataGrid.ItemsSourceProperty = dataServis.GetAllMailCompany();
+            var ListMails = db.companies.Select(x => x.Mailes);
+            foreach (var mails in ListMails)
+            {
+                foreach (var mail in mails)
+                {
+                    InnerBox.Text += " " + mail.MailName + "\r\n";
+                }
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+
+        }
     }
 }

@@ -7,9 +7,12 @@ public class Human : IHuman
     public string Patronymic { get; set; }
     public Human()
     {
+        Name = string.Empty;
+        SurName = string.Empty;
+        Patronymic = string.Empty;
     }
 
-    public Human(string name)
+    public Human(string name):this()
     {
         Name = name;
     }

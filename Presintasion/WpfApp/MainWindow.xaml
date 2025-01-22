@@ -14,8 +14,9 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Label FontWeight="Bold" FontSize="18" VerticalAlignment="Center">Список emails компании</Label>
-        <Button  x:Name="GetEmail" Grid.Row ="1" Width="200" Height="26" Margin="300,0,300,0" Click="GetEmail_Click">Вывести emails commpany</Button>
-        <DataGrid x:"DataGrid" Grid.Row="2"></DataGrid>
-        <TextBox x:Name="innerBox" Width="200" Grid.Row="3" Background="Blue" ></TextBox>
+        <Button  x:Name="GetEmail" Grid.Row ="1" Width="200" Height="26" Margin="23,10,577,4" Click="GetEmail_Click">Вывести emails commpany</Button>
+        <DataGrid x:Name="DataGrid" Grid.Row="2"></DataGrid>
+        <TextBox x:Name="InnerBox" Grid.Row="3" Background="Blue" Text="" Margin="23,0,500,-303" />
+        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="583,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="145" Height="30" Click="Button_Click"/>
     </Grid>
 </Window>

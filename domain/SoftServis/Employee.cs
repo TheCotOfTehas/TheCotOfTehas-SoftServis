@@ -13,9 +13,11 @@ namespace SoftServis
         public Address ResidentialAddress { get; set; }
         public string PositionAtWork { get; set; }
 
-        public Employee(int id) 
+        public Employee() 
         {
-            this.Id = id;
+            IdentificationNumber = 0;
+            ResidentialAddress = new Address();
+            PositionAtWork = string.Empty;
         }
     }
 }

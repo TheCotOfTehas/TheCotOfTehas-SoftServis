@@ -9,8 +9,15 @@ namespace SoftServis
     public class Telephone
     {
         public int Id { get; set; }
-        public Employee EmployeeName { get; set; } = new Employee(0);
+        public Employee EmployeeName { get; set; }
         public int Numder {  get; set; }
-        public string Name { get; set; } = "По Умолчанию";
+        public string Name { get; set; }
+
+        public Telephone() 
+        { 
+            EmployeeName = new Employee();
+            Numder = 0;
+            Name = string.Empty;
+        }
     }
 }

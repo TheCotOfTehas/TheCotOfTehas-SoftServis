@@ -12,5 +12,12 @@ namespace SoftServis
         public Employee EmployeeName { get; set; }
         public string MailName { get; set; }
         public string Name { get; set; }
+
+        public Mail()
+        {
+            EmployeeName = new Employee();
+            MailName = "Тут ПО Умолчанию";
+            Name = "Дефолтный Парень";
+        }
     }
 }

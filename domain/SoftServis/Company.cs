@@ -16,5 +16,15 @@ namespace SoftServis
         public Address AddresCompany { get; set; }
         public List<Telephone> Telephones { get; set; }
         public List<Mail> Mailes { get; set; }
+
+        public Company()
+        {
+            LongName = string.Empty;
+            ShortName = string.Empty;
+            Description = string.Empty;
+            AddresCompany = new Address();
+            Telephones = new List<Telephone>();
+            Mailes = new List<Mail>();
+        }
     }
 }
