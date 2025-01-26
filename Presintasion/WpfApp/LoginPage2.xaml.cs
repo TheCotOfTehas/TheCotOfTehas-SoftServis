@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftServis.Memory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,20 @@ namespace WpfApp
     /// </summary>
     public partial class LoginPage : Page
     {
+        private readonly DataServis dataServis;
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (true)
+            {
+                MainWindow mainWindow = new MainWindow(dataServis);
+                mainWindow.Show();
+                //this.Close();
+            }
         }
     }
 }
