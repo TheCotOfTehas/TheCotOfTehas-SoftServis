@@ -38,7 +38,15 @@ namespace WpfApp
             }
             else
             {
-                MessageBox.Show(LoginTextBox.Text + "Логин или пароль не верный");
+                MessageBox.Show("Неверный логин или пароль");
+            }
+        }
+
+        private void PasswordTextBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(LoginTextBox.Text))
+            {
+                ButtonAuthorization.IsEnabled = true;
             }
         }
     }
