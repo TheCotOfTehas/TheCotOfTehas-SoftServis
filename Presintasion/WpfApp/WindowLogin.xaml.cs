@@ -20,6 +20,8 @@ namespace WpfApp
     /// </summary>
     public partial class WindowLogin : Window
     {
+        private const string Login = "TheCotOfTehas";
+        private const string Password = "1234";
         private readonly DataServis dataServis;
         public WindowLogin()
         {
@@ -28,9 +30,16 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow(dataServis);
-            mainWindow.Show();
-            this.Close();
+            if (LoginTextBox.Text == Login && PasswordTextBox.Password == Password)
+            {
+                MainWindow mainWindow = new MainWindow(dataServis);
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show(LoginTextBox.Text + "Логин или пароль не верный");
+            }
         }
     }
 }
