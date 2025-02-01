@@ -42,6 +42,11 @@ namespace WpfApp
             }
         }
 
+        /// <summary>
+        /// Активация кнопки авторизации
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PasswordTextBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(LoginTextBox.Text))

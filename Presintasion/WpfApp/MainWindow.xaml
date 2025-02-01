@@ -12,14 +12,59 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="1"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
-        <Label FontWeight="Bold" FontSize="18" VerticalAlignment="Center">Список emails компании</Label>
-        <Button  x:Name="GetEmail" Grid.Row ="1" Width="200" Height="26" Margin="23,10,577,4" Click="GetEmail_Click">Вывести emails commpany</Button>
-        <DataGrid x:Name="DataGrid" Grid.Row="2"></DataGrid>
-        <TextBox x:Name="InnerBox" Grid.Row="3" Background="Blue" Text="" Margin="23,0,500,-303" />
-        <Button Content="Сохранить" HorizontalAlignment="Left" Margin="583,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="145" Height="30" Click="Button_Click"/>
-        <TextBox HorizontalAlignment="Left" Height="40" Margin="506,20,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="260"/>
-        <Label Content="Label" HorizontalAlignment="Left" Height="40" Margin="316,20,0,0" Grid.Row="3" VerticalAlignment="Top" Width="185"/>
+        <Label FontWeight="Bold" FontSize="18" 
+               VerticalAlignment="Center">Список emails компании</Label>
+        <Button  x:Name="GetEmail" Grid.Row ="1" 
+                 Width="200" Height="26" 
+                 Margin="23,10,577,4" Click="GetEmail_Click">Вывести emails commpany</Button>
+        <DataGrid x:Name="DataGrid" Grid.Row="2"/>
+        <TextBox x:Name="InnerBox" Grid.Row="3" 
+                 Background="Blue" Text="" 
+                 Margin="23,0,500,-303" />
+        <Button Content="Сохранить" HorizontalAlignment="Left" 
+                Margin="583,10,0,0" Grid.Row="1" 
+                VerticalAlignment="Top" Width="145" 
+                Height="30" Click="Button_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="20" 
+                 Margin="506,20,0,0" Grid.Row="3" 
+                 TextWrapping="Wrap" Text="Полное имя организации" 
+                 VerticalAlignment="Top" Width="260"
+                 x:Name="LongName"/>
+        <TextBox HorizontalAlignment="Left" Height="20" 
+                 Margin="506,20,0,0" Grid.Row="4" 
+                 TextWrapping="Wrap" Text="Краткое название" 
+                 VerticalAlignment="Top" Width="260"
+                 x:Name="ShortName"/>
+        <TextBox HorizontalAlignment="Left" Height="20" 
+                 Margin="506,20,0,0" Grid.Row="5" 
+                 TextWrapping="Wrap" Text="Описание" 
+                 VerticalAlignment="Top" Width="260"
+                 x:Name="Description"/>
+        <TextBox HorizontalAlignment="Left" Height="20" 
+                 Margin="506,20,0,0" Grid.Row="6" 
+                 TextWrapping="Wrap" Text="Телефон для связи" 
+                 VerticalAlignment="Top" Width="260"
+                 x:Name="Telephone"/>
+        <Label Content="Длинное имя" HorizontalAlignment="Left" 
+               Height="40" Margin="316,20,0,0" 
+               Grid.Row="3" VerticalAlignment="Top" 
+               Width="185"/>
+        <Label Content="Короткое имя" HorizontalAlignment="Left" 
+               Height="40" Margin="316,20,0,0" 
+               Grid.Row="4" VerticalAlignment="Top" 
+               Width="185"/>
+        <Label Content="Описание" HorizontalAlignment="Left" 
+               Height="40" Margin="316,20,0,0" 
+               Grid.Row="5" VerticalAlignment="Top" 
+               Width="185"/>
+        <Label Content="Телефон" HorizontalAlignment="Left"
+               Height="40" Margin="316,20,0,0"
+               Grid.Row="6" VerticalAlignment="Top"
+               Width="185"/>    
     </Grid>
 
 </Window>
