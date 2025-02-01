@@ -22,7 +22,7 @@ namespace WpfApp
             base.OnStartup(e);
 
             MainWindow mainWindow = serviceProvider.GetRequiredService<MainWindow>();
-            mainWindow.Show();
+            //mainWindow.Show();
         }
     }
 
