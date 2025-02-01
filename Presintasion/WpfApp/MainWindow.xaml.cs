@@ -41,24 +41,40 @@ namespace WpfApp
             DataContext = db.companies.Local.ToObservableCollection();
         }
 
-        private void Add_Click(object sender, RoutedEventArgs e)
+        //private void Add_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var longName = LongName.Text;
+        //    var shortName = ShortName.Text;
+        //    var description = Description.Text;
+        //    int telephone = int.Parse(Telephone.Text);
+        //    var currentCompany = new Company() 
+        //    {
+        //        LongName = longName,
+        //        ShortName = shortName,
+        //        Description = description        
+        //    };
+        //    var tellephone = new Telephone();
+        //    tellephone.Numder = telephone;
+        //    currentCompany.Telephones.Add(tellephone);
+        //    db.Add(currentCompany);
+        //    db.SaveChanges();
+        //    MessageBox.Show("Вы добавили данные в базу");
+        //}
+        /*
+         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var longName = LongName.Text;
-            var shortName = ShortName.Text;
-            var description = Description.Text;
-            int telephone = int.Parse(Telephone.Text);
-            var currentCompany = new Company() 
+            if (LoginTextBox.Text == Login && PasswordTextBox.Password == Password)
             {
-                LongName = longName,
-                ShortName = shortName,
-                Description = description        
-            };
-            var tellephone = new Telephone();
-            tellephone.Numder = telephone;
-            currentCompany.Telephones.Add(tellephone);
-            db.Add(currentCompany);
-            db.SaveChanges();
+                MainWindow mainWindow = new MainWindow(dataServis);
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Неверный логин или пароль");
+            }
         }
+         */
 
         private void GetEmail_Click(object sender, RoutedEventArgs e)
         {
@@ -79,7 +95,22 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            StringBuilder stringBuilder = new StringBuilder();
+            var longName = LongName.Text;
+            var shortName = ShortName.Text;
+            var description = Description.Text;
+            int telephone = int.Parse(Telephone.Text);
+            var currentCompany = new Company()
+            {
+                LongName = longName,
+                ShortName = shortName,
+                Description = description
+            };
+            var tellephone = new Telephone();
+            tellephone.Numder = telephone;
+            currentCompany.Telephones.Add(tellephone);
+            db.Add(currentCompany);
+            db.SaveChanges();
+            MessageBox.Show("Вы добавили данные в базу");
 
         }
     }
