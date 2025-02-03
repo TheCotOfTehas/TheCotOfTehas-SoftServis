@@ -1,6 +1,6 @@
 ﻿using SoftServis;
 
-namespace WpfApp
+namespace WpfApp.Model
 {
     internal class WorkClass
     {
@@ -14,7 +14,7 @@ namespace WpfApp
                     ShortName = "имяКороткое1",
                     Description = "Описание1",
                     AddresCompany = new Address(),
-                    Telephones = new List<Telephone>(),
+                    Telephones = new List<Telephone>(), 
                     Mailes = new List<Mail>(){ new Mail() {MailName = "Mail1@mail.ru" } }
                 },
                 new Company()

@@ -1,7 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SoftServis;
 using SoftServis.Memory;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,62 +13,42 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp.Model;
 
 namespace WpfApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для AddCompany.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddCompany : Window
     {
         ApplicationContext db = new ApplicationContext();
-
-        private readonly DataServis dataServis;
-        public MainWindow(DataServis dataServis)
+        DataServis dataServis;
+        public AddCompany(DataServis dataServis)
         {
             InitializeComponent();
             this.dataServis = dataServis;
-            Loaded += MainWindow_Loaded;
-            db.Database.EnsureDeleted();
-            db.Database.EnsureCreated();
+            Loaded += AddCompany_Loaded;
             List<Company> сompanies = WorkClass.GetContentBD();
-
             db.AddRange(сompanies.ToArray());
             db.SaveChanges();
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void AddCompany_Loaded(object sender, RoutedEventArgs e)
         {
             db.Database.EnsureCreated();
             db.companies.Load();
             DataContext = db.companies.Local.ToObservableCollection();
         }
 
-        private void GetEmail_Click(object sender, RoutedEventArgs e)
-        {
-            ExecuteReport();
-        }
-
-        private void ExecuteReport()
-        {
-            var ListMails = db.companies.Select(x => x.Mailes);
-            foreach (var mails in ListMails)
-            {
-                foreach (var mail in mails)
-                {
-                    InnerBox.Text += " " + mail.MailName + "\r\n";
-                }
-            }
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddCompany addCompany = new AddCompany(dataServis);
-            addCompany.Show();
+            MainWindow mainWindow = new MainWindow(dataServis);
             this.Close();
+            mainWindow.Show();
+            db.SaveChanges();
+            MessageBox.Show("Вы добавили данные в базу");
         }
     }
 }
