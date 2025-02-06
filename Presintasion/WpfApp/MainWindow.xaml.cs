@@ -27,7 +27,7 @@ namespace WpfApp
         {
             InitializeComponent();
             this.dataServis = dataServis;
-            Loaded += MainWindow_Loaded;
+            Loaded += Window_LoadedEmails;
             db.Database.EnsureDeleted();
             db.Database.EnsureCreated();
             List<Company> сompanies = WorkClass.GetContentBD();
@@ -36,10 +36,8 @@ namespace WpfApp
             db.SaveChanges();
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private void Window_LoadedEmails(object sender, RoutedEventArgs e)
         {
-            db.Database.EnsureCreated();
-            db.companies.Load();
             DataContext = db.companies.Local.ToObservableCollection();
         }
 
@@ -60,11 +58,15 @@ namespace WpfApp
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_Add_Company(object sender, RoutedEventArgs e)
         {
             AddCompany addCompany = new AddCompany(dataServis);
             addCompany.Show();
-            this.Close();
+        }
+
+        private void Button_Click_Add_Mails(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

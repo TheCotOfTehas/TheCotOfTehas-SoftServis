@@ -28,7 +28,11 @@
         <Button Content="Добавить Компанию" HorizontalAlignment="Left" 
                 Margin="583,10,0,0" Grid.Row="1" 
                 VerticalAlignment="Top" Width="145" 
-                Height="30" Click="Button_Click"/>
+                Height="30" Click="Button_Click_Add_Company"/>
+        <Button Content="Добавить почту" HorizontalAlignment="Left" 
+            Margin="583,0,0,0" Grid.Row="3" 
+            VerticalAlignment="Center" Width="145" 
+            Height="30" Click="Button_Click_Add_Mails"/>
     </Grid>
 
 </Window>

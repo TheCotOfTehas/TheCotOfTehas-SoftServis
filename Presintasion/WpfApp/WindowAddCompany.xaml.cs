@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SoftServis;
 using SoftServis.Memory;
 using System;
@@ -28,7 +29,7 @@ namespace WpfApp
         public AddCompany(DataServis dataServis)
         {
             InitializeComponent();
-            this.dataServis = dataServis;
+            //this.dataServis = dataServis;
             Loaded += AddCompany_Loaded;
             List<Company> сompanies = WorkClass.GetContentBD();
             db.AddRange(сompanies.ToArray());
@@ -44,11 +45,39 @@ namespace WpfApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow(dataServis);
-            this.Close();
-            mainWindow.Show();
+            var company = new Company();
+            var longName = LongName.Text;
+            var shortName = ShortName.Text;
+            var description = Description.Text;
+            var telephone = Telephone.Text;
+            company.LongName = longName;
+            company.ShortName = shortName;
+            company.Description = description;
+
+            if (ValidityPhone(telephone))
+            {
+                var digits  = int.Parse(telephone);
+                var currentTelephone = new Telephone();
+                currentTelephone.Numder = digits;
+                company.Telephones.Add(currentTelephone);
+            }
+
+            db.companies.Add(company);
             db.SaveChanges();
+            this.Close();
             MessageBox.Show("Вы добавили данные в базу");
+        }
+
+        private bool ValidityPhone(string telephone)
+        {
+            if (telephone.IsNullOrEmpty())
+                return false;
+
+            foreach (var symbol in telephone)
+                if (!char.IsDigit(symbol))
+                    return false;
+
+            return true;
         }
     }
 }

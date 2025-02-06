@@ -26,6 +26,8 @@ namespace WpfApp
         public WindowLogin()
         {
             InitializeComponent();
+            var lesson3 = new Lesson3();
+            lesson3.Show();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
