@@ -5,54 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="Lesson3" Height="450" Width="800">
+        Title="Lesson3" Height="400" Width="800">
+    <!---->
     <Grid>
+        <!--Создание колонок-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15"/>
-            <ColumnDefinition Width="38*"/>
-            <ColumnDefinition Width="78*"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="15"/> <!--Буфер-->
+            <ColumnDefinition Width="30*"/> <!--Панель управления-->
+            <ColumnDefinition Width="70*"/><!--Остновная область приложения-->
+            <ColumnDefinition Width="auto"/><!--Будет иметь ширину по необходимости-->
+            <ColumnDefinition Width="15"/> <!--Буфер-->
         </Grid.ColumnDefinitions>
+        <!--Создание строк-->
         <Grid.RowDefinitions>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/> <!--Буфер-->
+            <RowDefinition Height="*"/> <!--* означает всё свободное пространство-->
+            <RowDefinition Height="15"/><!--Буфер-->
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="1" Grid.Column="1">
-            <StackPanel Margin="5 5 5 5">
-                <Border BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
-                    <StackPanel>
-                        <TextBlock Margin="5 5 5 5"/>
-                        <TextBlock Margin="5 5 5 5"/>
-                        <Button Content="Кнопка" Margin="5 5 5 5"/>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-        </ScrollViewer>
-        <Grid Grid.Column="2" Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <DockPanel Grid.Row="0" Margin="5 5 5 5">
-                <TextBlock Text="Панель Ввода   "/>
-                <ScrollViewer>
-                    <TextBox TextWrapping="Wrap"/>
-                </ScrollViewer>
-            </DockPanel>
-            <DockPanel>
-                
-            </DockPanel>
-            <DockPanel Grid.Row="1" Margin="5 5 5 5">
-                <TextBlock Text="Панель Вывода"/>
-                <ScrollViewer>
-                    <TextBox TextWrapping="Wrap" />
-                </ScrollViewer>
-            </DockPanel>
-        </Grid>
+        
+        <!--Область перетаскиваемая ползунком-->
+        
+
+        <Border Grid.Column="2" Grid.Row="1" BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0" Margin="5 5 5 5">
+                    <TextBlock Text="Панель Ввода" DockPanel.Dock="Top"/>
+                    <Border BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
+                        <ScrollViewer>
+                            <TextBox TextWrapping="Wrap"/>
+                        </ScrollViewer>
+                    </Border>
+                </DockPanel>
+
+                <DockPanel Grid.Row="1" Margin="5 5 5 5">
+                    <TextBlock Text="Панель Вывода" DockPanel.Dock="Top"/>
+                    <Border BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
+                        <ScrollViewer>
+                            <TextBox TextWrapping="Wrap" />
+                        </ScrollViewer>
+                    </Border>
+                </DockPanel>
+            </Grid>
+        </Border>
+
         <DockPanel Grid.Column="1" Grid.Row="1">
             <TextBlock Text="Панель управления" DockPanel.Dock="Top" Margin="15 5 5 5"/>
+            <ScrollViewer>
+                <StackPanel Margin="5 5 5 5">
+                    <Border BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
+                        <StackPanel>
+                            <TextBlock Margin="5 5 5 5"/>
+                            <TextBlock Margin="5 5 5 5"/>
+                            <Button Content="Кнопка" Margin="5 5 5 5"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
+                        <StackPanel>
+                            <TextBlock Margin="5 5 5 5"/>
+                            <TextBlock Margin="5 5 5 5"/>
+                            <Button Content="Кнопка" Margin="5 5 5 5"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
+                        <StackPanel>
+                            <TextBlock Margin="5 5 5 5"/>
+                            <TextBlock Margin="5 5 5 5"/>
+                            <Button Content="Кнопка" Margin="5 5 5 5"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
+                        <StackPanel>
+                            <TextBlock Margin="5 5 5 5"/>
+                            <TextBlock Margin="5 5 5 5"/>
+                            <Button Content="Кнопка" Margin="5 5 5 5"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
         </DockPanel>
     </Grid>
 </Window>
