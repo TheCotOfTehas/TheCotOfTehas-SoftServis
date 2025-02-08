@@ -7,12 +7,22 @@
         mc:Ignorable="d"
         Title="WindowListCompany" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="15"/>
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="85*"/>
             <RowDefinition Height="auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="1" Name="LViewThours">
+        <ListView Grid.Row="1" Name="LViewThours" Grid.ColumnSpan="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="20" Width="400">
@@ -22,7 +32,7 @@
                             <RowDefinition Height="auto"></RowDefinition>
                             <RowDefinition Height="auto"></RowDefinition>
                         </Grid.RowDefinitions>
-                        
+
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
