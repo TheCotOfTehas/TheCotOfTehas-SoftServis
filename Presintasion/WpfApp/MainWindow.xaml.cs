@@ -68,5 +68,17 @@ namespace WpfApp
         {
 
         }
+
+        private void Button_OpenLessonFour(object sender, RoutedEventArgs e)
+        {
+            LessonFour lessonFour = new LessonFour();
+            lessonFour.Show();
+        }
+
+        private void Button_OpenLessonThree(object sender, RoutedEventArgs e)
+        {
+            LessonThree lessonThree = new LessonThree();
+            lessonThree.Show();
+        }
     }
 }

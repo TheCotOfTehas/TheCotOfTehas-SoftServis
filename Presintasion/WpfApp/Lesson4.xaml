@@ -1,30 +1,38 @@
-﻿<Window x:Class="WpfApp.LessonThree"
+﻿<Window x:Class="WpfApp.LessonFour"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="Lesson3" Height="400" Width="800">
+        Title="Lesson4" Height="400" Width="800">
     <!---->
     <Grid>
         <!--Создание колонок-->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15"/> <!--Буфер-->
-            <ColumnDefinition Width="30*"/> <!--Панель управления-->
-            <ColumnDefinition Width="70*"/><!--Остновная область приложения-->
-            <ColumnDefinition Width="auto"/><!--Будет иметь ширину по необходимости-->
-            <ColumnDefinition Width="15"/> <!--Буфер-->
+            <ColumnDefinition Width="15"/>
+            <!--Буфер-->
+            <ColumnDefinition Width="30*"/>
+            <!--Панель управления-->
+            <ColumnDefinition Width="70*"/>
+            <!--Остновная область приложения-->
+            <ColumnDefinition Width="auto"/>
+            <!--Будет иметь ширину по необходимости-->
+            <ColumnDefinition Width="15"/>
+            <!--Буфер-->
         </Grid.ColumnDefinitions>
         <!--Создание строк-->
         <Grid.RowDefinitions>
-            <RowDefinition Height="15"/> <!--Буфер-->
-            <RowDefinition Height="*"/> <!--* означает всё свободное пространство-->
-            <RowDefinition Height="15"/><!--Буфер-->
+            <RowDefinition Height="15"/>
+            <!--Буфер-->
+            <RowDefinition Height="*"/>
+            <!--* означает всё свободное пространство-->
+            <RowDefinition Height="15"/>
+            <!--Буфер-->
         </Grid.RowDefinitions>
-        
+
         <!--Область перетаскиваемая ползунком-->
-        
+
 
         <Border Grid.Column="2" Grid.Row="1" BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
             <Grid>
@@ -37,7 +45,7 @@
                     <TextBlock Text="Панель Ввода" DockPanel.Dock="Top"/>
                     <Border BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
                         <ScrollViewer>
-                            <TextBox TextWrapping="Wrap"/>
+                            <TextBox TextWrapping="Wrap" x:Name="InputBox"/>
                         </ScrollViewer>
                     </Border>
                 </DockPanel>
@@ -46,7 +54,7 @@
                     <TextBlock Text="Панель Вывода" DockPanel.Dock="Top"/>
                     <Border BorderBrush="Black" BorderThickness="2" Margin="5 0 5 5">
                         <ScrollViewer>
-                            <TextBox TextWrapping="Wrap" x:Name="TextBoxWriter"/>
+                            <TextBox TextWrapping="Wrap"  x:Name="OutputBox"/>
                         </ScrollViewer>
                     </Border>
                 </DockPanel>
@@ -61,7 +69,8 @@
                         <StackPanel>
                             <TextBlock Margin="5 5 5 5"/>
                             <TextBlock Margin="5 5 5 5"/>
-                            <Button Content="Кнопка" Margin="5 5 5 5"/>
+                            <Button Content="Прочитать текст" Margin="5 5 5 5" Click="Button_ReadText"/>
+                            <Button Content="Записать текст" Margin="5 5 5 5" Click="Button_WriteText"/>
                         </StackPanel>
                     </Border>
 

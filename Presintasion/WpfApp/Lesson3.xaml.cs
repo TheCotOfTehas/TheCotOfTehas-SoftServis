@@ -17,9 +17,9 @@ namespace WpfApp
     /// <summary>
     /// Логика взаимодействия для Lesson3.xaml
     /// </summary>
-    public partial class Lesson3 : Window
+    public partial class LessonThree : Window
     {
-        public Lesson3()
+        public LessonThree()
         {
             InitializeComponent();
         }
