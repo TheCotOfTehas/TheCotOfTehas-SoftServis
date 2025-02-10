@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="AddCompany" Height="450" Width="500">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
@@ -17,46 +21,46 @@
             <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Label FontWeight="Bold" FontSize="18" 
-           VerticalAlignment="Center">Добавить компании</Label>
+           VerticalAlignment="Center" Grid.ColumnSpan="2">Добавить компании</Label>
         <Button Content="Добавить" HorizontalAlignment="Left" 
             Margin="302,10,0,0" Grid.Row="1" 
             VerticalAlignment="Top" Width="145" 
-            Height="30" Click="Button_Click"/>
+            Height="30" Click="Button_Click" Grid.ColumnSpan="2"/>
         <TextBox HorizontalAlignment="Left" Height="20" 
              Margin="214,20,0,0" Grid.Row="3" 
              TextWrapping="Wrap" Text="Полное имя организации" 
              VerticalAlignment="Top" Width="260"
-             x:Name="LongName"/>
+             x:Name="LongName" Grid.ColumnSpan="2"/>
         <TextBox HorizontalAlignment="Left" Height="20" 
              Margin="214,20,0,0" Grid.Row="4" 
              TextWrapping="Wrap" Text="Краткое название" 
              VerticalAlignment="Top" Width="260"
-             x:Name="ShortName"/>
+             x:Name="ShortName" Grid.ColumnSpan="2"/>
         <TextBox HorizontalAlignment="Left" Height="20" 
              Margin="214,0,0,0" Grid.Row="5" 
              TextWrapping="Wrap" Text="Описание" 
              VerticalAlignment="Center" Width="260"
-             x:Name="Description"/>
+             x:Name="Description" Grid.ColumnSpan="2"/>
         <TextBox HorizontalAlignment="Left" Height="20" 
              Margin="214,0,0,0" Grid.Row="6" 
              TextWrapping="Wrap" Text="Телефон для связи" 
              VerticalAlignment="Top" Width="260"
-             x:Name="Telephone"/>
+             x:Name="Telephone" Grid.ColumnSpan="2"/>
         <Label Content="Длинное имя" HorizontalAlignment="Left" 
            Height="40" Margin="10,12,0,0" 
            Grid.Row="3" VerticalAlignment="Top" 
-           Width="185" Grid.RowSpan="2"/>
+           Width="185" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <Label Content="Короткое имя" HorizontalAlignment="Left" 
            Height="40" Margin="10,2,0,0" 
            Grid.Row="4" VerticalAlignment="Top" 
-           Width="185" Grid.RowSpan="2"/>
+           Width="185" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <Label Content="Описание" HorizontalAlignment="Left" 
            Height="40" Margin="10,0,0,0" 
            Grid.Row="5" VerticalAlignment="Center" 
-           Width="185"/>
+           Width="185" Grid.ColumnSpan="2"/>
         <Label Content="Телефон" HorizontalAlignment="Left"
            Height="40" Margin="10,38,0,0"
            Grid.Row="5" VerticalAlignment="Top"
-           Width="185" Grid.RowSpan="2"/>
+           Width="185" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
