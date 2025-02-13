@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="WindowListCompany" Height="450" Width="800">
+        Title="WindowCompany" Height="450" Width="800" FontSize="15">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"/>
@@ -20,7 +20,6 @@
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="15"/>
         </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="15"/>
             <RowDefinition Height="25"/>
@@ -40,27 +39,12 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
-        <ListView Grid.Row="1" Name="LViewThours" Grid.ColumnSpan="3">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="20" Width="400">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="70"></RowDefinition>
-                            <RowDefinition Height="310"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                            <RowDefinition Height="auto"></RowDefinition>
-                        </Grid.RowDefinitions>
-
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <TextBlock Text="Название Компании" 
-                   Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" 
-                   Background="LightBlue" TextAlignment="Center"/>
+        <TextBlock Text="Компания Рик и Морти" 
+           Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2" 
+           Background="LightBlue" TextAlignment="Center"/>
         <Image Margin="20" Source="C:\Users\tsebr\OneDrive\Рабочий стол\тест.jpg" 
-               Grid.Column="5" Grid.Row="1"  Grid.ColumnSpan="2" Grid.RowSpan="2" 
-               x:Name="Logo"/>
+           Grid.Column="5" Grid.Row="1"  Grid.ColumnSpan="2" Grid.RowSpan="2" 
+           x:Name="Logo"/>
         <TextBlock Text="Имя Пользователя" 
            Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="2" 
            Background="LightBlue" TextAlignment="Center" HorizontalAlignment="Right"/>
@@ -68,27 +52,30 @@
            Grid.Column="7" Grid.Row="2" Grid.ColumnSpan="2" 
            TextAlignment="Center"
            FontSize="6" HorizontalAlignment="Right"/>
-        <TextBlock Text="Полное название организации" 
-           Grid.Column="1" Grid.Row="3" FontSize="9"  
-           TextWrapping="Wrap"/>
-        <TextBlock Text="Краткое наименование" 
-           Grid.Column="1" Grid.Row="4" FontSize="9"  
-           TextWrapping="Wrap"/>
-        <TextBlock Text="ИНН" 
-           Grid.Column="1" Grid.Row="5"/>
-        <TextBlock Text="Контакты" 
-           Grid.Column="1" Grid.Row="6"/>
-        <TextBlock Text="Аддрес" 
-           Grid.Column="1" Grid.Row="7"/>
-        <TextBlock Text="События" 
-           Grid.Column="1" Grid.Row="8"/>
-        <TextBox Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2">Тест тест тест Тест тест тест</TextBox>
-        <TextBox Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2">Тест тест тест Тест тест тест</TextBox>
-        <TextBox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2">Тест тест тест Тест тест тест</TextBox>
-        <TextBox Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2">Тест тест тест Тест тест тест</TextBox>
-        <TextBox Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2">Тест тест тест Тест тест тест</TextBox>
-        <TextBox Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="2">Тест тест тест Тест тест тест</TextBox>
+        <ListView Grid.Row="3" Name="LViewThours" Grid.ColumnSpan="5" Grid.RowSpan="12">
+            <Border Background="LightBlue">
+                <StackPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="12" Grid.ColumnSpan="3" Margin="10">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Полное название организации" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
+                        <Border>
+                            <TextBox TextWrapping="Wrap" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2">ООО "Рога и копыта"</TextBox>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Краткое наименование" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
+                        <TextBox TextWrapping="Wrap">РИК</TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Mails" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
+                        <TextBox TextWrapping="Wrap">mail@smetarik.ru</TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="ИНН" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
+                        <TextBox TextWrapping="Wrap">9731016002</TextBox>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </ListView>
     </Grid>
-
 </Window>
 

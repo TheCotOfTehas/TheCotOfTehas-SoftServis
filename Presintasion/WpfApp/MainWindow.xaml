@@ -48,6 +48,10 @@
             Margin="583,0,0,0" Grid.Row="6" 
             VerticalAlignment="Center" Width="145" 
             Height="30" Click="Button_OpenLessonFive"/>
+        <Button Content="Открыть окно копании" HorizontalAlignment="Left" 
+            Margin="583,0,0,0" Grid.Row="7" 
+            VerticalAlignment="Center" Width="145" 
+            Height="30" Click="Button_OpenWindowCompany"/>
     </Grid>
 
 </Window>

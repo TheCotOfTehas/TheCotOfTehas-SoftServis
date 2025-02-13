@@ -86,5 +86,11 @@ namespace WpfApp
             LessonFive lessonFive = new LessonFive();
             lessonFive.Show();
         }
+
+        private void Button_OpenWindowCompany(object sender, RoutedEventArgs e)
+        {
+            WindowCompany windowCompany = new WindowCompany();
+            windowCompany.Show();
+        }
     }
 }
