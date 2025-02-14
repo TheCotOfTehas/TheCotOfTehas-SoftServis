@@ -23,5 +23,12 @@ namespace WpfApp
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var text = HistoriBox.Text;
+            HistoriBlock.Text += text;
+
+        }
     }
 }
