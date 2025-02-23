@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SoftServis;
 using SoftServis.Memory;
+using System.Printing;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -41,12 +42,17 @@ namespace WpfApp
             DataContext = db.companies.Local.ToObservableCollection();
         }
 
-        private void GetEmail_Click(object sender, RoutedEventArgs e)
+        private void GetCompanys_Click(object sender, RoutedEventArgs e)
         {
-            ExecuteReport();
+            var ListCompany = db.companies.Select(x => x.ShortName);
+
+            foreach (var company in ListCompany) 
+            {
+                InnerBox.Text += " " + company + "\r\n";
+            }
         }
 
-        private void ExecuteReport()
+        private void GetEmail_Click(object sender, RoutedEventArgs e)
         {
             var ListMails = db.companies.Select(x => x.Mailes);
             foreach (var mails in ListMails)

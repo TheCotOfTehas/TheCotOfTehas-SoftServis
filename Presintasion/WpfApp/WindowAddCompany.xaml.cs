@@ -32,7 +32,7 @@ namespace WpfApp
             //this.dataServis = dataServis;
             Loaded += AddCompany_Loaded;
             List<Company> сompanies = WorkClass.GetContentBD();
-            db.AddRange(сompanies.ToArray());
+            //db.AddRange(сompanies.ToArray());
             db.SaveChanges();
         }
 

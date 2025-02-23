@@ -23,9 +23,7 @@
         <Label FontWeight="Bold" FontSize="18" 
            VerticalAlignment="Center" Grid.ColumnSpan="2">Добавить компании</Label>
         <Button Content="Добавить" HorizontalAlignment="Left" 
-            Margin="302,10,0,0" Grid.Row="1" 
-            VerticalAlignment="Top" Width="145" 
-            Height="30" Click="Button_Click" Grid.ColumnSpan="2"/>
+            Margin="302,10,0,0" Grid.Row="1" Width="145" Click="Button_Click" Grid.ColumnSpan="2"/>
         <TextBox HorizontalAlignment="Left" Height="20" 
              Margin="214,20,0,0" Grid.Row="3" 
              TextWrapping="Wrap" Text="Полное имя организации" 
