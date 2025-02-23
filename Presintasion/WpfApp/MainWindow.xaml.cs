@@ -95,8 +95,24 @@ namespace WpfApp
 
         private void Button_OpenWindowCompany(object sender, RoutedEventArgs e)
         {
-            WindowCompany windowCompany = new WindowCompany();
+            WindowCompany windowCompany = new WindowCompany(new Company());
             windowCompany.Show();
+        }
+
+        private void OpenCompany_Click(object sender, RoutedEventArgs e)
+        {
+            var listCompany = db.companies;
+            var nameCompany = OpenCompany.Text.ToString();
+            var company = listCompany.FirstOrDefault(x =>x.ShortName.CompareTo(nameCompany) == 0);
+            if (company != null)
+            {
+                var r = new WindowCompany(company);
+                r.Show();
+            }
+            else
+            {
+                MessageBox.Show("Данная Компания в базе не найдена попробуйте снова!!!");
+            }
         }
     }
 }

@@ -18,6 +18,8 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Label FontWeight="Bold" FontSize="18" 
                VerticalAlignment="Center">Список emails компании</Label>
@@ -27,7 +29,11 @@
         <DataGrid x:Name="DataGrid" Grid.Row="2"/>
         <TextBox x:Name="InnerBox" Grid.Row="3" 
                  Background="Blue" Text="" 
-                 Margin="23,0,500,-303" />
+                 Margin="23,0,500,-250" />
+        <StackPanel Orientation="Horizontal" Grid.Row="10" >
+            <TextBox Width="250" Height="200" Background="Red" Margin="25 10 0 0 " x:Name="OpenCompany"/>
+            <Button Margin="2 10 0 0" Click="OpenCompany_Click">Открыть</Button>
+        </StackPanel>
         <Button Content="Добавить Компанию" HorizontalAlignment="Left" 
                 Margin="583,10,0,0" Grid.Row="1" 
                 VerticalAlignment="Top" Width="145" 

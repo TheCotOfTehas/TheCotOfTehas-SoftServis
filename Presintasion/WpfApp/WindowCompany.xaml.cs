@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftServis;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +20,19 @@ namespace WpfApp
     /// </summary>
     public partial class WindowCompany : Window
     {
-        public WindowCompany()
+        public WindowCompany(Company company)
         {
             InitializeComponent();
+            FullName.Text = company.LongName;
+            ShortName.Text = company.ShortName;
+            Mails.Text = company.Mailes.First().MailName;
+            INN.Text =  company.Id.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var text = HistoriBox.Text;
             HistoriBlock.Text += text;
-
         }
     }
 }

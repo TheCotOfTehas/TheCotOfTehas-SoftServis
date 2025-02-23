@@ -60,20 +60,20 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Полное название организации" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
                         <Border>
-                            <TextBox TextWrapping="Wrap" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2">ООО "Рога и копыта"</TextBox>
+                            <TextBox x:Name="FullName" TextWrapping="Wrap" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2">ООО "Рога и копыта"</TextBox>
                         </Border>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Краткое наименование" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
-                        <TextBox TextWrapping="Wrap">РИК</TextBox>
+                        <TextBox x:Name="ShortName"  TextWrapping="Wrap">РИК</TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Mails" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
-                        <TextBox TextWrapping="Wrap">mail@smetarik.ru</TextBox>
+                        <TextBox x:Name="Mails" TextWrapping="Wrap">mail@smetarik.ru</TextBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="ИНН" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
-                        <TextBox TextWrapping="Wrap">9731016002</TextBox>
+                        <TextBox x:Name="INN" TextWrapping="Wrap">9731016002</TextBox>
                     </StackPanel>
                 </StackPanel>
             </Border>
