@@ -92,6 +92,8 @@
                 </StackPanel>
             </Border>
         </DockPanel>
+        <Button Grid.Column="4" Content="Сохранить" HorizontalAlignment="Left" Margin="25,25,0,1" Grid.Row="14" Click="Button_Save" Background="LightGreen"/>
+
     </Grid>
 </Window>
 
