@@ -69,7 +69,8 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Mails" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
-                        <TextBox x:Name="Mails" TextWrapping="Wrap">mail@smetarik.ru</TextBox>
+                        <TextBox x:Name="Mails" TextWrapping="Wrap" TextChanged="Mails_TextChanged">mail@smetarik.ru</TextBox>
+                        <Button>Add</Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="ИНН" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
@@ -92,7 +93,7 @@
                 </StackPanel>
             </Border>
         </DockPanel>
-        <Button Grid.Column="4" Content="Сохранить" HorizontalAlignment="Left" Margin="25,25,0,1" Grid.Row="14" Click="Button_Save" Background="LightGreen"/>
+        <Button Grid.Column="4" Content="Сохранить" HorizontalAlignment="Left" Margin="25,25,0,0" Grid.Row="14" Click="Button_Save" Background="LightGreen" Height="24" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

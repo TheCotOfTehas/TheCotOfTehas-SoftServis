@@ -24,8 +24,12 @@
         <Label FontWeight="Bold" FontSize="18" 
                VerticalAlignment="Center">Список emails компании</Label>
         <Button  x:Name="GetEmail" Grid.Row ="1" 
-                 Width="70" Height="26" 
-                 Margin="23,7,707,7" Click="GetEmail_Click">Emails</Button>
+                 Width="90" Height="26" 
+                 Margin="186,7,524,7" Click="GetEmail_Click">Emails</Button>
+        <Button  x:Name="GetCompanys" Grid.Row ="1"
+            Width="90" Height="26" 
+            Margin="49,7,661,7" Click="GetCompanys_Click" Content="Companys"/>
+
         <DataGrid x:Name="DataGrid" Grid.Row="2"/>
         <TextBox x:Name="InnerBox" Grid.Row="3" 
                  Background="Blue" Text="" 
@@ -58,9 +62,6 @@
             Margin="583,0,0,0" Grid.Row="7" 
             VerticalAlignment="Center" Width="145" 
             Height="30" Click="Button_OpenWindowCompany"/>
-        <Button  x:Name="GetCompanys" Grid.Row ="1" 
-            Width="70" Height="26" 
-            Margin="98,7,632,7" Click="GetCompanys_Click" Content="Companys"/>
     </Grid>
 
 </Window>

@@ -57,6 +57,7 @@ namespace WpfApp
                     dd.Mailes.Add(new Mail() { MailName = Mails.Text });
 
                     db.SaveChanges();
+                    MessageBox.Show("Информация сохранена");
                 }
             }
         }
@@ -83,7 +84,6 @@ namespace WpfApp
             {
                 using StreamWriter strWriter = new StreamWriter($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt", true);
                 strWriter.WriteLine($"{text} + {dateTime}");
-                MessageBox.Show("text Загружен");
             }
             else
             {
