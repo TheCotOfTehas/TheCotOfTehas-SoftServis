@@ -3,7 +3,9 @@ using SoftServis;
 using SoftServis.Memory;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Printing;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,21 +30,22 @@ namespace WpfApp
             InitializeComponent();
             FullName.Text = company.LongName;
             ShortName.Text = company.ShortName;
-            Mails.Text = company.Mailes.First()?.MailName;
+            Mails.Text = company.Mailes.First().MailName;
             INN.Text =  company.Id.ToString();
             CompanyCurrent = company;
+            HistoriBlock.Text = ReadText(company.Id);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Send_Messeg(object sender, RoutedEventArgs e)
         {
             var text = HistoriBox.Text;
             var date = DateTime.Now;
             HistoriBlock.Text += $"{text}  {date} ";
+            WriteText(CompanyCurrent.Id, text, date);
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {
-
             using (ApplicationContext db = new())
             {
                 var dd = db.companies.Where(x => x.Id == CompanyCurrent.Id).FirstOrDefault();
@@ -56,17 +59,37 @@ namespace WpfApp
                     db.SaveChanges();
                 }
             }
+        }
+        private string ReadText(int INN)
+        {
+            string text = "";
+            if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
+            {
+                using StreamReader strRdrText = new StreamReader($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
+                text = strRdrText.ReadToEnd();
+            }
+            else
+            {
+                MessageBox.Show("Файла для записи не существует");
+                File.Create($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
+            }
 
-            //db.Database.
-            //string connectionString = @"Data Source=(localdb)\mssqllocaldb; Database=dbCompany; Trusted_Connection=True;";
-            //string sqlExpression = $"UPDATE сompanies SET Age={20} WHERE ShortName = {CompanyCurrent.ShortName}";
-            //using (SqlConnection connection = new SqlConnection(connectionString))
-            //{
-            //    connection.Open();
-            //    SqlCommand command = new SqlCommand(sqlExpression, connection);
-            //    int number = command.ExecuteNonQuery();
-            //    Console.WriteLine("Удалено объектов: {0}", number);
-            //}
+            return text;
+        }
+
+        private void WriteText(int INN, string text, DateTime dateTime)
+        {
+            if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
+            {
+                using StreamWriter strWriter = new StreamWriter($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt", true);
+                strWriter.WriteLine($"{text} + {dateTime}");
+                MessageBox.Show("text Загружен");
+            }
+            else
+            {
+                MessageBox.Show("Файла для чтения не существует. Был Создан новый");
+                File.Create($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
+            }
         }
     }
 }

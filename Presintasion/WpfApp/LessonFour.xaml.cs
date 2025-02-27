@@ -28,9 +28,9 @@ namespace WpfApp
 
         private void Button_ReadText(object sender, RoutedEventArgs e)
         {
-            if (File.Exists("C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\Текст.txt"))
+            if (File.Exists("C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИстроийКомпаний\\Текст.txt"))
             {
-                using StreamReader strRdrText = new StreamReader("C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\Текст.txt");
+                using StreamReader strRdrText = new StreamReader("C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИстроийКомпаний\\Текст.txt");
                 string text = strRdrText.ReadToEnd();
                 OutputBox.Text = text;
             }
@@ -42,10 +42,10 @@ namespace WpfApp
 
         private void Button_WriteText(object sender, RoutedEventArgs e)
         {
-            if (File.Exists("C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\Текст.txt"))
+            if (File.Exists("C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИстроийКомпаний\\Текст.txt"))
             {
                 string text = InputBox.Text.ToString();
-                using StreamWriter strWriter = new StreamWriter("C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\Текст.txt", true);
+                using StreamWriter strWriter = new StreamWriter("C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИстроийКомпаний\\Текст.txt", true);
                 strWriter.WriteLine(text);
             }
             else
