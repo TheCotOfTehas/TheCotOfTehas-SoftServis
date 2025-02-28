@@ -32,10 +32,11 @@
 
         <DataGrid x:Name="DataGrid" Grid.Row="2"/>
         <TextBox x:Name="InnerBox" Grid.Row="3" 
-                 Background="Blue" Text="" 
-                 Margin="23,0,500,-250" />
+                 Background="LightCyan" Text="" 
+                 Margin="23,0,500,-250" 
+                 FontSize="20"/>
         <StackPanel Orientation="Horizontal" Grid.Row="10" >
-            <TextBox Width="250" Height="200" Background="Red" Margin="25 10 0 0 " x:Name="OpenCompany"/>
+            <TextBox Width="250" Height="200" Background="LightGreen" Margin="25 10 0 0 " FontSize="20" x:Name="OpenCompany"/>
             <Button Margin="2 10 0 0" Click="OpenCompany_Click">Открыть</Button>
         </StackPanel>
         <Button Content="Добавить Компанию" HorizontalAlignment="Left" 
@@ -46,7 +47,7 @@
             Margin="583,0,0,0" Grid.Row="3" 
             VerticalAlignment="Center" Width="145" 
             Height="30" Click="Button_Click_Add_Mails"/>
-        <Button Content="Открыть урок 3" HorizontalAlignment="Left" 
+        <!--<Button Content="Открыть урок 3" HorizontalAlignment="Left" 
             Margin="583,0,0,0" Grid.Row="4" 
             VerticalAlignment="Center" Width="145" 
             Height="30" Click="Button_OpenLessonThree"/>
@@ -57,7 +58,7 @@
         <Button Content="Открыть урок 5" HorizontalAlignment="Left" 
             Margin="583,0,0,0" Grid.Row="6" 
             VerticalAlignment="Center" Width="145" 
-            Height="30" Click="Button_OpenLessonFive"/>
+            Height="30" Click="Button_OpenLessonFive"/>-->
         <Button Content="Открыть окно копании" HorizontalAlignment="Left" 
             Margin="583,0,0,0" Grid.Row="7" 
             VerticalAlignment="Center" Width="145" 

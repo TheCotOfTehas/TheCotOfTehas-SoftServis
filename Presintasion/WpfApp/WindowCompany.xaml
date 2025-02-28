@@ -49,7 +49,7 @@
         <TextBlock Text="Имя Пользователя" 
            Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="2" 
            Background="LightBlue" TextAlignment="Center" HorizontalAlignment="Right"/>
-        <TextBlock Text="Id пользователя" 
+        <TextBlock Text="Id пользователя" x:Name="IDUser" 
            Grid.Column="7" Grid.Row="2" Grid.ColumnSpan="2" 
            TextAlignment="Center"
            FontSize="10" HorizontalAlignment="Right"/>

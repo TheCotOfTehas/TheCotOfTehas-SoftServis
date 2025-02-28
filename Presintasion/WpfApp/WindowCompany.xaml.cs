@@ -36,9 +36,10 @@ namespace WpfApp
             else 
                 Mails.Text = "Не задано";
 
-            INN.Text =  company.INN.ToString();
+            INN.Text = company.INN.ToString();
             CompanyCurrent = company;
             HistoriBlock.Text = ReadText(company.Id);
+            IDUser.Text = "ID Company- (" + company.Id.ToString() + ")";
         }
 
         private void Button_Send_Messeg(object sender, RoutedEventArgs e)
@@ -100,7 +101,8 @@ namespace WpfApp
 
         private void Mails_TextChanged(object sender, RoutedEventArgs e)
         {
-
+            var addMails = new AddMails();
+            addMails.Show();
         }
     }
 }

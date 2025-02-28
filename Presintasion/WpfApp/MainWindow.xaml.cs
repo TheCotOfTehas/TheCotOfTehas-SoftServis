@@ -28,7 +28,7 @@ namespace WpfApp
         {
             InitializeComponent();
             this.dataServis = dataServis;
-            Loaded += Window_LoadedEmails;
+            Loaded += GetCompanys_Click;
             //db.Database.EnsureDeleted();
             //db.Database.EnsureCreated();
             //List<Company> сompanies = WorkClass.GetContentBD();
