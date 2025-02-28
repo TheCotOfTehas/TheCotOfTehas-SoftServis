@@ -10,6 +10,7 @@ namespace SoftServis
     public class Company
     {
         public int Id { get; set; }
+        public long INN{ get; set; }
         public string LongName { get; set; }
         public string ShortName { get; set; }
         public string Description { get; set; }
@@ -25,6 +26,7 @@ namespace SoftServis
             AddresCompany = new Address();
             Telephones = new List<Telephone>();
             Mailes = new List<Mail>();
+            INN = 0;
         }
     }
 }

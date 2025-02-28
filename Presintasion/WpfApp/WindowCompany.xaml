@@ -69,12 +69,12 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Mails" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
-                        <TextBox x:Name="Mails" TextWrapping="Wrap" TextChanged="Mails_TextChanged">mail@smetarik.ru</TextBox>
-                        <Button>Add</Button>
+                        <TextBox x:Name="Mails" TextWrapping="Wrap">mail@smetarik.ru</TextBox>
+                        <Button Click="Mails_TextChanged">Add</Button>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="ИНН" FontSize="12" TextWrapping="Wrap" Margin="0 0 10 0"/>
-                        <TextBox x:Name="INN" TextWrapping="Wrap">9731016002</TextBox>
+                        <TextBox x:Name="INN" TextWrapping="Wrap">__________</TextBox>
                     </StackPanel>
                 </StackPanel>
             </Border>

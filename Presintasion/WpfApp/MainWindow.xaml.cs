@@ -29,12 +29,12 @@ namespace WpfApp
             InitializeComponent();
             this.dataServis = dataServis;
             Loaded += Window_LoadedEmails;
-            db.Database.EnsureDeleted();
-            db.Database.EnsureCreated();
-            List<Company> сompanies = WorkClass.GetContentBD();
+            //db.Database.EnsureDeleted();
+            //db.Database.EnsureCreated();
+            //List<Company> сompanies = WorkClass.GetContentBD();
 
-            db.AddRange(сompanies.ToArray());
-            db.SaveChanges();
+            //db.AddRange(сompanies.ToArray());
+            //db.SaveChanges();
         }
 
         private void Window_LoadedEmails(object sender, RoutedEventArgs e)

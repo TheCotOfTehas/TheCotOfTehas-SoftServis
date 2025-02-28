@@ -30,8 +30,13 @@ namespace WpfApp
             InitializeComponent();
             FullName.Text = company.LongName;
             ShortName.Text = company.ShortName;
-            Mails.Text = company.Mailes.First().MailName;
-            INN.Text =  company.Id.ToString();
+            var mail = company.Mailes;
+            if (mail != null && mail.Count > 0)
+                Mails.Text = mail.First().MailName;
+            else 
+                Mails.Text = "Не задано";
+
+            INN.Text =  company.INN.ToString();
             CompanyCurrent = company;
             HistoriBlock.Text = ReadText(company.Id);
         }
@@ -40,7 +45,7 @@ namespace WpfApp
         {
             var text = HistoriBox.Text;
             var date = DateTime.Now;
-            HistoriBlock.Text += $"{text}  {date} ";
+            HistoriBlock.Text += $"{text}  {date} \r\n";
             WriteText(CompanyCurrent.Id, text, date);
         }
 
@@ -48,20 +53,21 @@ namespace WpfApp
         {
             using (ApplicationContext db = new())
             {
-                var dd = db.companies.Where(x => x.Id == CompanyCurrent.Id).FirstOrDefault();
+               
                 if (CompanyCurrent != null)
                 {
-                    dd.LongName = FullName.Text;
-                    dd.ShortName = ShortName.Text;
-                    dd.Id = int.Parse(INN.Text);
-                    dd.Mailes.Add(new Mail() { MailName = Mails.Text });
+                    var company = db.companies.Where(x => x.INN == CompanyCurrent.INN).FirstOrDefault();
+                    company.LongName = FullName.Text;
+                    company.ShortName = ShortName.Text;
+                    company.INN = long.Parse(INN.Text);
+                    company.Mailes.Add(new Mail() { MailName = Mails.Text });
 
                     db.SaveChanges();
                     MessageBox.Show("Информация сохранена");
                 }
             }
         }
-        private string ReadText(int INN)
+        private string ReadText(long INN)
         {
             string text = "";
             if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
@@ -78,7 +84,7 @@ namespace WpfApp
             return text;
         }
 
-        private void WriteText(int INN, string text, DateTime dateTime)
+        private void WriteText(long INN, string text, DateTime dateTime)
         {
             if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
             {
@@ -90,6 +96,11 @@ namespace WpfApp
                 MessageBox.Show("Файла для чтения не существует. Был Создан новый");
                 File.Create($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
             }
+        }
+
+        private void Mails_TextChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

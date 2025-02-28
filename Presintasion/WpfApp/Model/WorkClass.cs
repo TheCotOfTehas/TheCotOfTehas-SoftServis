@@ -10,27 +10,30 @@ namespace WpfApp.Model
             [
                 new Company()
                 {
-                    LongName = "имяДлинное1",
-                    ShortName = "имяКороткое1",
-                    Description = "Описание1",
+                    INN= 1598756891,
+                    LongName = "ООО \"Монолит\"",
+                    ShortName = "Монолит",
+                    Description = "компания заниммается железобетонными конструкциями",
                     AddresCompany = new Address(),
                     Telephones = new List<Telephone>(), 
                     Mailes = new List<Mail>(){ new Mail() {MailName = "Mail1@mail.ru" } }
                 },
                 new Company()
                 {
-                    LongName = "имяДлинное2",
-                    ShortName = "имяКороткое2",
-                    Description = "Описание2",
+                    INN = 1598756895,
+                    LongName = "СЗ \"Мегаполис\"",
+                    ShortName = "Мегаполис",
+                    Description = "Застройщик",
                     AddresCompany = new Address(),
                     Telephones = new List<Telephone>(),
                     Mailes = new List<Mail>(){ new Mail() {MailName = "Mail2@mail.ru" } }
                 },
                 new Company()
                 {
-                    LongName = "имяДлинное3",
-                    ShortName = "имяКороткое3",
-                    Description = "Описание3",
+                    INN = 1400568940,
+                    LongName = "ИП Бортников",
+                    ShortName = "Бортников",
+                    Description = "Конкурент, ранее занимался продажами программы ГРАНД-смета в Костроме",
                     AddresCompany = new Address(),
                     Telephones = new List<Telephone>(),
                     Mailes = new List<Mail>(){ new Mail() {MailName = "Mail3@mail.ru" } }
