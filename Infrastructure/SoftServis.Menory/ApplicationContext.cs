@@ -11,6 +11,7 @@ namespace SoftServis.Memory
     public class ApplicationContext : DbContext
     {
         public DbSet<Company> companies { get; set; } = null;
+        //public DbSet<HistoryCompany> historyCompany { get; set; } = null;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=(localdb)\\mssqllocaldb; Database=dbCompany; Trusted_Connection=True;");
