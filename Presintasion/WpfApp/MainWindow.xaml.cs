@@ -95,7 +95,7 @@ namespace WpfApp
 
         private void Button_OpenWindowCompany(object sender, RoutedEventArgs e)
         {
-            WindowCompany windowCompany = new WindowCompany(new Company());
+            WindowCompany windowCompany = new WindowCompany(db, new Company());
             windowCompany.Show();
         }
 
@@ -106,7 +106,7 @@ namespace WpfApp
             var company = listCompany.FirstOrDefault(x =>x.ShortName.CompareTo(nameCompany) == 0);
             if (company != null)
             {
-                var r = new WindowCompany(company);
+                var r = new WindowCompany(db, company);
                 r.Show();
             }
             else

@@ -26,12 +26,12 @@ namespace WpfApp
     public partial class WindowCompany : Window
     {
         Company CompanyCurrent {  get; set; }
-        ApplicationContext db {  get; set; }
+        ApplicationContext DataBase {  get; set; }
 
-        public WindowCompany(Company company)
+        public WindowCompany(ApplicationContext dataBase,  Company company)
         {
             InitializeComponent();
-            db = new();
+            DataBase = new();
             FullName.Text = company.LongName;
             ShortName.Text = company.ShortName;
             var mail = company.Mailes;
@@ -46,14 +46,14 @@ namespace WpfApp
             IDUser.Text = "ID Company- (" + company.Id.ToString() + ")";
         }
 
-        private void Button_Send_Messeg(object sender, RoutedEventArgs e)
+        private void Button_Send_Messed(object sender, RoutedEventArgs e)
         {
             var text = HistoriBox.Text;
             var date = DateTime.Now;
             var historyCompany = new HistoryCompany() { Message = "text" };
             CompanyCurrent.Historys.Add(historyCompany);
             
-            db.SaveChanges();
+            DataBase.SaveChanges();
             HistoriBlock.Text += $"{text}  {historyCompany.DateMessage} \r\n";
             WriteText(CompanyCurrent.Id, text, date);
         }
@@ -62,13 +62,13 @@ namespace WpfApp
         {              
             if (CompanyCurrent != null)
             {
-                var company = db.companies.Where(x => x.INN == CompanyCurrent.INN).FirstOrDefault();
+                var company = DataBase.companies.Where(x => x.INN == CompanyCurrent.INN).FirstOrDefault();
                 company.LongName = FullName.Text;
                 company.ShortName = ShortName.Text;
                 company.INN = long.Parse(INN.Text);
                 company.Mailes.Add(new Mail() { MailName = Mails.Text });
 
-                db.SaveChanges();
+                DataBase.SaveChanges();
                 MessageBox.Show("Информация сохранена");
             }
         }
@@ -91,43 +91,48 @@ namespace WpfApp
                 DateMessage = dateTime,
             };
             CompanyCurrent.Historys.Add(history);
-            db.SaveChanges();
+            DataBase.SaveChanges();
         }
-        //private string ReadText(long INN)
-        //{
-        //    string text = "";
-        //    if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
-        //    {
-        //        using StreamReader strRdrText = new StreamReader($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
-        //        text = strRdrText.ReadToEnd();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Файла для записи не существует");
-        //        File.Create($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
-        //    }
+        private static string ReadWithFileText(long INN)
+        {
+            string text = "";
+            if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
+            {
+                using StreamReader strRdrText = new StreamReader($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
+                text = strRdrText.ReadToEnd();
+            }
+            else
+            {
+                MessageBox.Show("Файла для записи не существует");
+                File.Create($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
+            }
 
-        //    return text;
-        //}
+            return text;
+        }
 
-        //private void WriteText(long INN, string text, DateTime dateTime)
-        //{
-        //    if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
-        //    {
-        //        using StreamWriter strWriter = new StreamWriter($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt", true);
-        //        strWriter.WriteLine($"{text} + {dateTime}");
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Файла для чтения не существует. Был Создан новый");
-        //        File.Create($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
-        //    }
-        //}
+        private static void WriteInFileText(long INN, string text, DateTime dateTime)
+        {
+            if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
+            {
+                using StreamWriter strWriter = new StreamWriter($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt", true);
+                strWriter.WriteLine($"{text} + {dateTime}");
+            }
+            else
+            {
+                MessageBox.Show("Файла для чтения не существует. Был Создан новый");
+                File.Create($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
+            }
+        }
 
         private void Mails_TextChanged(object sender, RoutedEventArgs e)
         {
             var addMails = new AddMails();
             addMails.Show();
+        }
+
+        private void Button_Send_Messeg(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
