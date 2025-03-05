@@ -17,7 +17,7 @@ namespace SoftServis
         public Address AddresCompany { get; set; }
         public List<Telephone> Telephones { get; set; }
         public List<Mail> Mailes { get; set; }
-
+        public List<HistoryCompany> Historys { get; set; }
         public Company()
         {
             LongName = string.Empty;
@@ -27,6 +27,10 @@ namespace SoftServis
             Telephones = new List<Telephone>();
             Mailes = new List<Mail>();
             INN = 0;
+            Historys = new List<HistoryCompany>() 
+            { 
+                new HistoryCompany(){Message = "Это начало истории работы с компанией"},
+            };
         }
     }
 }

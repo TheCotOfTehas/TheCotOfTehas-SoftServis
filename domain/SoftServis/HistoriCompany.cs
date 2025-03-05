@@ -9,13 +9,12 @@ namespace SoftServis
     public class HistoryCompany
     {
         public int Id {  get; set; }
-        public Company CurrentCompany { get; set; }
         public string Message { get; set; }
         public DateTime DateMessage { get; set; }
 
-        public HistoryCompany(Company company)
+        public HistoryCompany()
         {
-            CurrentCompany = company;
+            DateMessage = DateTime.Now;
         }
     }
 }
