@@ -19,7 +19,7 @@ namespace SoftServis.Memory
         {
             if (name is null) return null;
 
-            var currentCompany = context.companies
+            var currentCompany = context.Companies
                 .Where(x => x.LongName == name)
                 .FirstOrDefault();
 

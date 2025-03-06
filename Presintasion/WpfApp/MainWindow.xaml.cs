@@ -21,14 +21,15 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        ApplicationContext db = new ApplicationContext();
+        ApplicationContext DataBase{ get; set; }
 
-        private readonly DataServis dataServis;
+        private readonly DataServis DataServis;
         public MainWindow(DataServis dataServis)
         {
             InitializeComponent();
-            this.dataServis = dataServis;
+            this.DataServis = dataServis;
             Loaded += GetCompanys_Click;
+            DataBase = new ApplicationContext();
             //db.Database.EnsureDeleted();
             //db.Database.EnsureCreated();
             //List<Company> сompanies = WorkClass.GetContentBD();
@@ -39,12 +40,12 @@ namespace WpfApp
 
         private void Window_LoadedEmails(object sender, RoutedEventArgs e)
         {
-            DataContext = db.companies.Local.ToObservableCollection();
+            DataContext = DataBase.Companies.Local.ToObservableCollection();
         }
 
         private void GetCompanys_Click(object sender, RoutedEventArgs e)
         {
-            var ListCompany = db.companies.Select(x => x.ShortName);
+            var ListCompany = DataBase.Companies.Select(x => x.ShortName);
 
             foreach (var company in ListCompany) 
             {
@@ -54,7 +55,7 @@ namespace WpfApp
 
         private void GetEmail_Click(object sender, RoutedEventArgs e)
         {
-            var ListMails = db.companies.Select(x => x.Mailes);
+            var ListMails = DataBase.Companies.Select(x => x.Mailes);
             foreach (var mails in ListMails)
             {
                 foreach (var mail in mails)
@@ -66,7 +67,7 @@ namespace WpfApp
 
         private void Button_Click_Add_Company(object sender, RoutedEventArgs e)
         {
-            AddCompany addCompany = new AddCompany(dataServis);
+            AddCompany addCompany = new AddCompany(DataBase);
             addCompany.Show();
         }
 
@@ -95,18 +96,18 @@ namespace WpfApp
 
         private void Button_OpenWindowCompany(object sender, RoutedEventArgs e)
         {
-            WindowCompany windowCompany = new WindowCompany(db, new Company());
+            WindowCompany windowCompany = new WindowCompany(DataBase, 0);
             windowCompany.Show();
         }
 
         private void OpenCompany_Click(object sender, RoutedEventArgs e)
         {
-            var listCompany = db.companies;
+            var listCompany = DataBase.Companies;
             var nameCompany = OpenCompany.Text.ToString();
             var company = listCompany.FirstOrDefault(x =>x.ShortName.CompareTo(nameCompany) == 0);
             if (company != null)
             {
-                var r = new WindowCompany(db, company);
+                var r = new WindowCompany(DataBase, company.Id);
                 r.Show();
             }
             else

@@ -24,23 +24,24 @@ namespace WpfApp
     /// </summary>
     public partial class AddCompany : Window
     {
-        ApplicationContext db = new ApplicationContext();
+        ApplicationContext DataBase = new ApplicationContext();
         DataServis dataServis;
-        public AddCompany(DataServis dataServis)
+        public AddCompany(ApplicationContext dataBase)
         {
             InitializeComponent();
             //this.dataServis = dataServis;
             Loaded += AddCompany_Loaded;
             List<Company> сompanies = WorkClass.GetContentBD();
             //db.AddRange(сompanies.ToArray());
-            db.SaveChanges();
+            DataBase = dataBase;
+            DataBase.SaveChanges();
         }
 
         private void AddCompany_Loaded(object sender, RoutedEventArgs e)
         {
-            db.Database.EnsureCreated();
-            db.companies.Load();
-            DataContext = db.companies.Local.ToObservableCollection();
+            DataBase.Database.EnsureCreated();
+            DataBase.Companies.Load();
+            DataContext = DataBase.Companies.Local.ToObservableCollection();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -62,8 +63,8 @@ namespace WpfApp
                 company.Telephones.Add(currentTelephone);
             }
 
-            db.companies.Add(company);
-            db.SaveChanges();
+            DataBase.Companies.Add(company);
+            DataBase.SaveChanges();
             this.Close();
             MessageBox.Show("Вы добавили данные в базу");
         }

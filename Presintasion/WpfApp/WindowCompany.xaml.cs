@@ -25,25 +25,35 @@ namespace WpfApp
     /// </summary>
     public partial class WindowCompany : Window
     {
-        Company CompanyCurrent {  get; set; }
+        Company CompanyCurrent { get { return DataBase.Companies.Where(company => company.Id == IdCompany).FirstOrDefault(); }}
         ApplicationContext DataBase {  get; set; }
 
-        public WindowCompany(ApplicationContext dataBase,  Company company)
+        int IdCompany {  get; set; }
+
+        public WindowCompany(ApplicationContext dataBase,  int idCompany)
         {
             InitializeComponent();
-            DataBase = new();
-            FullName.Text = company.LongName;
-            ShortName.Text = company.ShortName;
-            var mail = company.Mailes;
+            DataBase = dataBase;
+            IdCompany = idCompany;
+            //CompanyCurrent = DataBase.Companies.Where(company => company.Id == idCompany).FirstOrDefault();
+            FillOutForm();
+            IDUser.Text = "ID Company- (" + CompanyCurrent.Id.ToString() + ")";
+        }
+
+        private void FillOutForm()
+        {
+            FullName.Text = CompanyCurrent.LongName;
+            ShortName.Text = CompanyCurrent.ShortName;
+            CompanyName.Text = $"Компания {CompanyCurrent.ShortName}";
+            var mail = CompanyCurrent.Mailes;
+
             if (mail != null && mail.Count > 0)
                 Mails.Text = mail.First().MailName;
-            else 
+            else
                 Mails.Text = "Не задано";
 
-            INN.Text = company.INN.ToString();
-            CompanyCurrent = company;
+            INN.Text = CompanyCurrent.INN.ToString();
             HistoriBlock.Text = ReadText();
-            IDUser.Text = "ID Company- (" + company.Id.ToString() + ")";
         }
 
         private void Button_Send_Messed(object sender, RoutedEventArgs e)
@@ -52,38 +62,38 @@ namespace WpfApp
             var date = DateTime.Now;
             var historyCompany = new HistoryCompany() { Message = "text" };
             CompanyCurrent.Historys.Add(historyCompany);
-            
             DataBase.SaveChanges();
             HistoriBlock.Text += $"{text}  {historyCompany.DateMessage} \r\n";
-            WriteText(CompanyCurrent.Id, text, date);
+            WriteText(text, date);
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
         {              
             if (CompanyCurrent != null)
             {
-                var company = DataBase.companies.Where(x => x.INN == CompanyCurrent.INN).FirstOrDefault();
+                var company = DataBase.Companies.Where(x => x.INN == CompanyCurrent.INN).FirstOrDefault();
                 company.LongName = FullName.Text;
                 company.ShortName = ShortName.Text;
                 company.INN = long.Parse(INN.Text);
                 company.Mailes.Add(new Mail() { MailName = Mails.Text });
-
                 DataBase.SaveChanges();
                 MessageBox.Show("Информация сохранена");
             }
         }
+
         private string ReadText()
         {
-            string messeg = "";
-            foreach (var item in CompanyCurrent.Historys)
+            string message = "";
+            List<HistoryCompany> historyCompanyes = CompanyCurrent.Historys;
+            foreach (HistoryCompany item in historyCompanyes)
             {
-                var r = item.Message;
-                messeg += $"{item.Message}    {item.DateMessage} \r\n";
+                //var r = item.Message;
+                message += $"{item.Message}    {item.DateMessage} \r\n";
             }
-
-            return messeg;
+            
+            return message;
         }
-        private void WriteText(long INN, string text, DateTime dateTime)
+        private void WriteText(string text, DateTime dateTime)
         {
             var history = new HistoryCompany() 
             { 
@@ -93,12 +103,13 @@ namespace WpfApp
             CompanyCurrent.Historys.Add(history);
             DataBase.SaveChanges();
         }
+
         private static string ReadWithFileText(long INN)
         {
             string text = "";
             if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
             {
-                using StreamReader strRdrText = new StreamReader($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
+                using StreamReader strRdrText = new($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
                 text = strRdrText.ReadToEnd();
             }
             else
@@ -114,7 +125,7 @@ namespace WpfApp
         {
             if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
             {
-                using StreamWriter strWriter = new StreamWriter($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt", true);
+                using StreamWriter strWriter = new($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt", true);
                 strWriter.WriteLine($"{text} + {dateTime}");
             }
             else
@@ -130,7 +141,7 @@ namespace WpfApp
             addMails.Show();
         }
 
-        private void Button_Send_Messeg(object sender, RoutedEventArgs e)
+        private void Button_Send_Message(object sender, RoutedEventArgs e)
         {
 
         }
