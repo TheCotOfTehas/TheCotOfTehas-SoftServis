@@ -18,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WpfApp
 {
@@ -36,7 +37,7 @@ namespace WpfApp
 
             var companyCurrent  = DataBase
                         .Companies
-                        .Include(company => company.Historys)
+                        .Include(company => company.Histories)
                         .Where(x => x.Id == idCompany)
                         .FirstOrDefault();
 
@@ -50,8 +51,9 @@ namespace WpfApp
             var text = HistoriBox.Text;
             var date = DateTime.Now;
             var historyCompany = new HistoryCompany(text);
-            HistoriBlock.Text += $"{text}  {historyCompany.DateMessage} \r\n";
-            WriteText(text, date);
+            HistoriBlock.Text += $"{historyCompany.Message}  {historyCompany.DateMessage} \r\n";
+            CompanyCurrent.Histories.Add(historyCompany);
+            DataBase.SaveChanges();
         }
 
         private void FillOutForm()
@@ -60,7 +62,7 @@ namespace WpfApp
             FullName.Text = CompanyCurrent.LongName;
             ShortName.Text = CompanyCurrent.ShortName;
             CompanyName.Text = $"Компания {CompanyCurrent.ShortName}";
-            var mail = CompanyCurrent.Mailes;
+            var mail = CompanyCurrent.Mails;
 
             if (mail != null && mail.Count > 0)
                 Mails.Text = mail.First().MailName;
@@ -68,7 +70,9 @@ namespace WpfApp
                 Mails.Text = "Не задано";
 
             INN.Text = CompanyCurrent.INN.ToString();
-            HistoriBlock.Text = ReadText();
+            var historiBlock = string.IsNullOrEmpty(HistoriBlock.Text) ? $"Это начало истории компании \r\n {DateTime.Now} \r\n" : HistoriBlock.Text;
+            HistoriBlock.Text = historiBlock;
+            HistoriBlock.Text += ReadText();
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
@@ -76,7 +80,7 @@ namespace WpfApp
             CompanyCurrent.LongName = FullName.Text != null ? FullName.Text : "Не указано";
             CompanyCurrent.ShortName = ShortName.Text;
             CompanyCurrent.INN = long.Parse(INN.Text);
-            CompanyCurrent.Mailes.Add(new Mail() { MailName = Mails.Text });
+            CompanyCurrent.Mails.Add(new Mail() { MailName = Mails.Text });
             DataBase.SaveChanges();
             MessageBox.Show("Информация сохранена");
         }
@@ -84,21 +88,10 @@ namespace WpfApp
         private string ReadText()
         {
             string message = "";
-            foreach (HistoryCompany item in CompanyCurrent.Historys)
+            foreach (HistoryCompany item in CompanyCurrent.Histories)
                 message += $"{item.Message}    {item.DateMessage} \r\n";
             
             return message;
-        }
-
-        private void WriteText(string text, DateTime dateTime)
-        {
-            var history = new HistoryCompany()
-            {
-                Message = text,
-                DateMessage = dateTime,
-            };
-            CompanyCurrent.Historys.Add(history);
-            DataBase.SaveChanges();
         }
 
         private static string ReadWithFileText(long INN)

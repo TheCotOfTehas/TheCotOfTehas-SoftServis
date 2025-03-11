@@ -14,23 +14,23 @@ namespace SoftServis
         public string LongName { get; set; }
         public string ShortName { get; set; }
         public string Description { get; set; }
-        public Address AddresCompany { get; set; }
+        public Address AddressCompany { get; set; }
         public List<Telephone> Telephones { get; set; }
-        public List<Mail> Mailes { get; set; }
-        public List<HistoryCompany> Historys { get; set; }
+        public List<Mail> Mails { get; set; }
+        public List<HistoryCompany> Histories { get; set; }
         public Company()
         {
             LongName = string.Empty;
             ShortName = string.Empty;
             Description = string.Empty;
-            AddresCompany = new Address();
+            AddressCompany = new Address();
             Telephones = new List<Telephone>();
-            Mailes = new List<Mail>();
+            Mails = new List<Mail>();
             INN = 0;
-            Historys = new List<HistoryCompany>() 
-            { 
-                new HistoryCompany(){Message = "Это начало истории работы с компанией"},
-            };
+            Histories = new List<HistoryCompany>();
+            //{ 
+                //new HistoryCompany(){Message = "Это начало истории работы с компанией в создании компании"},
+            //};
         }
     }
 }

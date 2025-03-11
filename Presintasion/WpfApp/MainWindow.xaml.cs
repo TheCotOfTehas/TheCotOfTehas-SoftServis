@@ -29,13 +29,17 @@ namespace WpfApp
             InitializeComponent();
             this.DataServis = dataServis;
             DataBase = new ApplicationContext();
-            //DataBase.Database.EnsureDeleted();
-            //DataBase.Database.EnsureCreated();
-            //List<Company> сompanies = WorkClass.GetContentBD();
-            //DataBase.AddRange(сompanies.ToArray());
+            //MyInitBD();
             DataBase.SaveChanges();
         }
 
+        private void MyInitBD()
+        {
+            DataBase.Database.EnsureDeleted();
+            DataBase.Database.EnsureCreated();
+            List<Company> сompanies = WorkClass.GetContentBD();
+            DataBase.AddRange(сompanies.ToArray());
+        }
         private void Window_LoadedEmails(object sender, RoutedEventArgs e)
         {
             DataContext = DataBase.Companies.Local.ToObservableCollection();
@@ -53,7 +57,7 @@ namespace WpfApp
 
         private void GetEmail_Click(object sender, RoutedEventArgs e)
         {
-            var ListMails = DataBase.Companies.Select(x => x.Mailes);
+            var ListMails = DataBase.Companies.Select(x => x.Mails);
             foreach (var mails in ListMails)
             {
                 foreach (var mail in mails)
@@ -105,8 +109,8 @@ namespace WpfApp
             var company = listCompany.FirstOrDefault(x =>x.ShortName.CompareTo(nameCompany) == 0);
             if (company != null)
             {
-                var r = new WindowCompany(DataBase, company.Id);
-                r.Show();
+                var windowCompany = new WindowCompany(DataBase, company.Id);
+                windowCompany.Show();
             }
             else
             {

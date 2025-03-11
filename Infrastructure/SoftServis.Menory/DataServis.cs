@@ -25,7 +25,7 @@ namespace SoftServis.Memory
 
             if (currentCompany is null) return null;
 
-            return currentCompany.Mailes;
+            return currentCompany.Mails;
         }
     }
 }
