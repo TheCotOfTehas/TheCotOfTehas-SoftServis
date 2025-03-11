@@ -28,14 +28,12 @@ namespace WpfApp
         {
             InitializeComponent();
             this.DataServis = dataServis;
-            Loaded += GetCompanys_Click;
             DataBase = new ApplicationContext();
-            //db.Database.EnsureDeleted();
-            //db.Database.EnsureCreated();
+            //DataBase.Database.EnsureDeleted();
+            //DataBase.Database.EnsureCreated();
             //List<Company> сompanies = WorkClass.GetContentBD();
-
-            //db.AddRange(сompanies.ToArray());
-            //db.SaveChanges();
+            //DataBase.AddRange(сompanies.ToArray());
+            DataBase.SaveChanges();
         }
 
         private void Window_LoadedEmails(object sender, RoutedEventArgs e)

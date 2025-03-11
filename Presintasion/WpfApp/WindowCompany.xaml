@@ -85,7 +85,7 @@
             <Border Margin="5 5 5 5" BorderBrush="Black" BorderThickness="2">
 
                 <StackPanel>
-                    <TextBlock x:Name="HistoriBlock" Margin="5" TextWrapping="Wrap" Text = "Тут некая история работы с компанией"/>
+                    <TextBlock x:Name="HistoriBlock" Margin="5" TextWrapping="Wrap" Text = "История по умолчанию"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBox TextWrapping="Wrap" x:Name="HistoriBox" Text="Введите сообщение"/>
                         <Button x:Name="HistoriButton" BorderBrush="Black" Background="LightBlue" BorderThickness="2" Margin="20 5 5 5" Click="Button_Send_Messed">отправить</Button>

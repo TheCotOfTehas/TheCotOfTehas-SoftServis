@@ -16,5 +16,9 @@ namespace SoftServis
         {
             DateMessage = DateTime.Now;
         }
+        public HistoryCompany(string message) : this()
+        {
+            Message = message;
+        }
     }
 }

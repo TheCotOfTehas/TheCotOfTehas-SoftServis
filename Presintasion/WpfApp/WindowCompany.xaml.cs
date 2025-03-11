@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 using SoftServis;
 using SoftServis.Memory;
 using System;
@@ -25,23 +26,37 @@ namespace WpfApp
     /// </summary>
     public partial class WindowCompany : Window
     {
-        Company CompanyCurrent { get { return DataBase.Companies.Where(company => company.Id == IdCompany).FirstOrDefault(); }}
+        Company CompanyCurrent { get; set;}
         ApplicationContext DataBase {  get; set; }
-
-        int IdCompany {  get; set; }
 
         public WindowCompany(ApplicationContext dataBase,  int idCompany)
         {
             InitializeComponent();
             DataBase = dataBase;
-            IdCompany = idCompany;
-            //CompanyCurrent = DataBase.Companies.Where(company => company.Id == idCompany).FirstOrDefault();
+
+            var companyCurrent  = DataBase
+                        .Companies
+                        .Include(company => company.Historys)
+                        .Where(x => x.Id == idCompany)
+                        .FirstOrDefault();
+
+            CompanyCurrent = companyCurrent != null ? companyCurrent : new Company();
             FillOutForm();
-            IDUser.Text = "ID Company- (" + CompanyCurrent.Id.ToString() + ")";
+        }
+
+
+        private void Button_Send_Messed(object sender, RoutedEventArgs e)
+        {
+            var text = HistoriBox.Text;
+            var date = DateTime.Now;
+            var historyCompany = new HistoryCompany(text);
+            HistoriBlock.Text += $"{text}  {historyCompany.DateMessage} \r\n";
+            WriteText(text, date);
         }
 
         private void FillOutForm()
         {
+            IDUser.Text = "ID Company- (" + CompanyCurrent.Id.ToString() + ")";
             FullName.Text = CompanyCurrent.LongName;
             ShortName.Text = CompanyCurrent.ShortName;
             CompanyName.Text = $"Компания {CompanyCurrent.ShortName}";
@@ -56,47 +71,29 @@ namespace WpfApp
             HistoriBlock.Text = ReadText();
         }
 
-        private void Button_Send_Messed(object sender, RoutedEventArgs e)
-        {
-            var text = HistoriBox.Text;
-            var date = DateTime.Now;
-            var historyCompany = new HistoryCompany() { Message = "text" };
-            CompanyCurrent.Historys.Add(historyCompany);
-            DataBase.SaveChanges();
-            HistoriBlock.Text += $"{text}  {historyCompany.DateMessage} \r\n";
-            WriteText(text, date);
-        }
-
         private void Button_Save(object sender, RoutedEventArgs e)
         {              
-            if (CompanyCurrent != null)
-            {
-                var company = DataBase.Companies.Where(x => x.INN == CompanyCurrent.INN).FirstOrDefault();
-                company.LongName = FullName.Text;
-                company.ShortName = ShortName.Text;
-                company.INN = long.Parse(INN.Text);
-                company.Mailes.Add(new Mail() { MailName = Mails.Text });
-                DataBase.SaveChanges();
-                MessageBox.Show("Информация сохранена");
-            }
+            CompanyCurrent.LongName = FullName.Text != null ? FullName.Text : "Не указано";
+            CompanyCurrent.ShortName = ShortName.Text;
+            CompanyCurrent.INN = long.Parse(INN.Text);
+            CompanyCurrent.Mailes.Add(new Mail() { MailName = Mails.Text });
+            DataBase.SaveChanges();
+            MessageBox.Show("Информация сохранена");
         }
 
         private string ReadText()
         {
             string message = "";
-            List<HistoryCompany> historyCompanyes = CompanyCurrent.Historys;
-            foreach (HistoryCompany item in historyCompanyes)
-            {
-                //var r = item.Message;
+            foreach (HistoryCompany item in CompanyCurrent.Historys)
                 message += $"{item.Message}    {item.DateMessage} \r\n";
-            }
             
             return message;
         }
+
         private void WriteText(string text, DateTime dateTime)
         {
-            var history = new HistoryCompany() 
-            { 
+            var history = new HistoryCompany()
+            {
                 Message = text,
                 DateMessage = dateTime,
             };

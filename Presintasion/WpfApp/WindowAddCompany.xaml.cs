@@ -29,19 +29,8 @@ namespace WpfApp
         public AddCompany(ApplicationContext dataBase)
         {
             InitializeComponent();
-            //this.dataServis = dataServis;
-            Loaded += AddCompany_Loaded;
-            List<Company> сompanies = WorkClass.GetContentBD();
-            //db.AddRange(сompanies.ToArray());
             DataBase = dataBase;
             DataBase.SaveChanges();
-        }
-
-        private void AddCompany_Loaded(object sender, RoutedEventArgs e)
-        {
-            DataBase.Database.EnsureCreated();
-            DataBase.Companies.Load();
-            DataContext = DataBase.Companies.Local.ToObservableCollection();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
