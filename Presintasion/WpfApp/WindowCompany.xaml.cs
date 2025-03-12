@@ -135,5 +135,11 @@ namespace WpfApp
         {
 
         }
+
+        private void GetListProduct(object sender, RoutedEventArgs e)
+        {
+            var list = new WindowListProduct();
+            list.Show();
+        }
     }
 }

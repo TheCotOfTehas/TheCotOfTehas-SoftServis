@@ -93,7 +93,17 @@
                 </StackPanel>
             </Border>
         </DockPanel>
-        <Button Grid.Column="4" Content="Сохранить" HorizontalAlignment="Left" Margin="25,25,0,0" Grid.Row="14" Click="Button_Save" Background="LightGreen" Height="24" VerticalAlignment="Top"/>
+        <Button Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="2" 
+                Content="Get List Product" 
+                Click="GetListProduct"
+                Background="LightGreen" Margin="25,25,0,0"
+                Height="24" VerticalAlignment="Top"/>
+        <Button Grid.Column="4" Grid.Row="14"
+                Content="Сохранить" 
+                HorizontalAlignment="Left" Margin="25,25,0,0" 
+                Click="Button_Save" 
+                Background="LightGreen"
+                Height="24" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
