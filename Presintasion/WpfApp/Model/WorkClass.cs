@@ -16,7 +16,10 @@ namespace WpfApp.Model
                     Description = "компания заниммается железобетонными конструкциями",
                     AddressCompany = new Address(),
                     Telephones = new List<Telephone>(), 
-                    Mails = new List<Mail>(){ new Mail() {MailName = "Mail1@mail.ru" } }
+                    Mails = new List<Mail>(){ new Mail() {MailName = "Mail1@mail.ru" } },
+                    Products = new List<Product>(){
+                        new Product(){Name ="ГРАНД-смета Флеш", DatePurchase = DateTime.Now, LicenseValidity = DateTime.Now}
+                    }
                 },
                 new Company()
                 {

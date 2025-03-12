@@ -29,7 +29,7 @@ namespace WpfApp
             InitializeComponent();
             this.DataServis = dataServis;
             DataBase = new ApplicationContext();
-            //MyInitBD();
+            MyInitBD();
             DataBase.SaveChanges();
         }
 

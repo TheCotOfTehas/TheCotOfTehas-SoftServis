@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftServis;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,19 @@ namespace WpfApp
     /// </summary>
     public partial class WindowListProduct : Window
     {
-        public WindowListProduct()
+        public Company CompanyCurrent {  get; set; }
+        public WindowListProduct(Company companyCurrent)
         {
             InitializeComponent();
+            CompanyCurrent = companyCurrent;
+            var listProduct = CompanyCurrent.Products;
+            foreach (var product in listProduct) 
+            {
+                NameProgram.Text = product.Name;
+                DataSell.Text = product.DatePurchase.ToString();
+                LicenseValidity.Text = product.LicenseValidity.ToString();
+                NameManager.Text = "Цебро Е.В.";
+            }
         }
     }
 }
