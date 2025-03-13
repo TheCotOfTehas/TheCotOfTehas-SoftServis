@@ -38,6 +38,8 @@ namespace WpfApp
             var companyCurrent  = DataBase
                         .Companies
                         .Include(company => company.Histories)
+                        .Include(company => company.Mails)
+                        .Include(company => company.Products)
                         .Where(x => x.Id == idCompany)
                         .FirstOrDefault();
 
@@ -138,7 +140,7 @@ namespace WpfApp
 
         private void GetListProduct(object sender, RoutedEventArgs e)
         {
-            var list = new WindowListProduct(CompanyCurrent);
+            var list = new WindowListProduct(DataBase, CompanyCurrent);
             list.Show();
         }
     }

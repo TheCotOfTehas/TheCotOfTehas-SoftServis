@@ -1,6 +1,8 @@
 ﻿using SoftServis;
+using SoftServis.Memory;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,10 +23,12 @@ namespace WpfApp
     public partial class WindowListProduct : Window
     {
         public Company CompanyCurrent {  get; set; }
-        public WindowListProduct(Company companyCurrent)
+        ApplicationContext DataBase { get; set; }
+        public WindowListProduct(ApplicationContext dataBase ,Company companyCurrent)
         {
             InitializeComponent();
             CompanyCurrent = companyCurrent;
+            DataBase = dataBase;
             var listProduct = CompanyCurrent.Products;
             foreach (var product in listProduct) 
             {
@@ -33,6 +37,19 @@ namespace WpfApp
                 LicenseValidity.Text = product.LicenseValidity.ToString();
                 NameManager.Text = "Цебро Е.В.";
             }
+        }
+
+        private void AddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            var nameProgram = NameProgramIn.Text;
+            var nameManagerIn = NameManagerIn.Text;
+            var dataSellIn = DataSellIn.Text;
+            var licenseValidity = LicenseValidity.Text;
+
+            var newProduct = new Product { Name = nameProgram, LicenseValidity = DateTime.Now, DatePurchase = DateTime.Now }; 
+            CompanyCurrent.Products.Add(newProduct);
+            MessageBox.Show("Куппленный продукт добавлен");
+            DataBase.SaveChanges();
         }
     }
 }
