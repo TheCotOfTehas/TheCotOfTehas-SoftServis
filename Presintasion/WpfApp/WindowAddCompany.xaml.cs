@@ -56,6 +56,7 @@ namespace WpfApp
             DataBase.SaveChanges();
             this.Close();
             MessageBox.Show("Вы добавили данные в базу");
+            UpdateLayout();
         }
 
         private bool ValidityPhone(string telephone)

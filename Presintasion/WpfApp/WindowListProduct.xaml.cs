@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WpfApp
 {
@@ -30,13 +31,68 @@ namespace WpfApp
             CompanyCurrent = companyCurrent;
             DataBase = dataBase;
             var listProduct = CompanyCurrent.Products;
-            foreach (var product in listProduct) 
+            //foreach (var product in listProduct) 
+            //{
+            //    NameProgram.Text = product.Name;
+            //    DataSell.Text = product.DatePurchase.ToString();
+            //    LicenseValidity.Text = product.LicenseValidity.ToString();
+            //    NameManager.Text = "Цебро Е.В.";
+            //}
+
+            for (int i = 0; i < listProduct.Count; i++)
             {
-                NameProgram.Text = product.Name;
-                DataSell.Text = product.DatePurchase.ToString();
-                LicenseValidity.Text = product.LicenseValidity.ToString();
-                NameManager.Text = "Цебро Е.В.";
+                Border borderBig = new Border();
+
+                StackPanel stackPanelBig = new StackPanel() 
+                { 
+                    Orientation = Orientation.Horizontal,
+                    Name = "NameProgram" + 5 + "Inner",
+                };
+                TextBox boxNameProgram = new TextBox() 
+                {
+                    Name = "NameProgram" + 5, 
+                    Text = listProduct[i].Name, 
+                    Width = 300,
+                };
+                TextBox boxDataSell = new TextBox()
+                {
+                    Name = "DataSell" + 5,
+                    Text = listProduct[i].DatePurchase.ToString(),
+                    Width = 100,
+                };
+
+                TextBox boxLicenseValidity = new TextBox()
+                {
+                    Name = "LicenseValidity" + 5,
+                    Text = listProduct[i].LicenseValidity.ToString(),
+                    Width = 100,
+                };
+
+                TextBox boxNameManager = new TextBox()
+                {
+                    Name = "NameManager" + 5,
+                    Text = "Цебро Е.В.",
+                    Width = 70,
+                };
+
+                var borderNameProgram = GetElementTable(boxNameProgram);
+                var borderDataSell = GetElementTable(boxDataSell);
+                var borderLicenseValidity = GetElementTable(boxLicenseValidity);
+                var borderNameManager = GetElementTable(boxNameManager);
+                borderBig.Child = stackPanelBig;
+                stackPanelBig.Children.Add(borderNameProgram);
+                stackPanelBig.Children.Add(borderDataSell);
+                stackPanelBig.Children.Add(borderLicenseValidity);
+                stackPanelBig.Children.Add(borderNameManager);
+                GGWP.Children.Add(borderBig);
             }
+        }
+
+        private static Border GetElementTable(TextBox textBox)
+        {
+            Border borderNameProgram = new Border();
+            borderNameProgram.Child = textBox;
+            return borderNameProgram;
         }
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
@@ -44,7 +100,7 @@ namespace WpfApp
             var nameProgram = NameProgramIn.Text;
             var nameManagerIn = NameManagerIn.Text;
             var dataSellIn = DataSellIn.Text;
-            var licenseValidity = LicenseValidity.Text;
+            var licenseValidity = LicenseValidityIn.Text;
 
             var newProduct = new Product { Name = nameProgram, LicenseValidity = DateTime.Now, DatePurchase = DateTime.Now }; 
             CompanyCurrent.Products.Add(newProduct);
