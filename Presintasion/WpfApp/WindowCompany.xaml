@@ -9,10 +9,10 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition MaxWidth="100" Width="10*"/>
+            <ColumnDefinition MaxWidth="100" Width="10*"/>
+            <ColumnDefinition MaxWidth="100" Width="10*"/>
+            <ColumnDefinition MaxWidth="100" Width="10*"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="10*"/>
@@ -21,12 +21,11 @@
             <ColumnDefinition Width="15"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
-            <RowDefinition Height="25"/>
+            <RowDefinition MinHeight="25" Height="25"/>
+            <RowDefinition MinHeight="25" Height="25"/>
+            <RowDefinition MinHeight="25" Height="25"/>
+            <RowDefinition MinHeight="25" Height="25"/>
+            <RowDefinition MinHeight="25" Height="25"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
             <RowDefinition Height="25"/>
@@ -80,36 +79,35 @@
             </Border>
         </ListView>
         <!--Блок с историей взаимодействия-->
-        <DockPanel Grid.Column="6" Grid.Row="6" Background="LightCoral" Grid.ColumnSpan="3" Grid.RowSpan ="9" Margin="5 5 5 5">
-
+        <ScrollViewer Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan ="9" MinWidth="200" Background="LightBlue">
             <Border Margin="5 5 5 5" BorderBrush="Black" BorderThickness="2">
-
-                <StackPanel>
+                <StackPanel x:Name="StackPanelHistori">
                     <TextBlock x:Name="HistoriBlock" Margin="5" TextWrapping="Wrap" Text = ""/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox MaxWidth="220" TextWrapping="Wrap" x:Name="HistoriBox" Text="Введите сообщение"/>
-                        <Button x:Name="HistoriButton" BorderBrush="Black" 
-                                Background="LightBlue" BorderThickness="2" 
-                                Padding="5" Margin="5 5 5 5" 
-                                Height="30"
-                                HorizontalAlignment="Center"
-                                Click="Button_Send_Messed">отправить</Button>
+                        <TextBox MinWidth="220" TextWrapping="Wrap" x:Name="HistoriBox" Text="Введите сообщение"/>
+                            <Button x:Name="HistoriButton" BorderBrush="Black" 
+                                    Background="LightGreen" BorderThickness="2" 
+                                    Padding="5" Margin="5 5 5 5" 
+                                    Height="30"
+                                    HorizontalAlignment="Center"
+                                    Click="Button_Send_Messed">отправить</Button>
                     </StackPanel>
-                    <!--<local:Page1 x:Name="Page" Grid.Column="0" />-->
-                    <!--<Frame  Source="Page1.xaml" Margin="10"
-                        BorderBrush="LimeGreen" BorderThickness="100"
-                            Grid.Column="1" Grid.Row="1"/>-->
+                    <!--<local:Page1 x:Name="Page" Grid.Column="0" />
+                        <Frame  Source="Page1.xaml" Margin="10"
+                            BorderBrush="LimeGreen" BorderThickness="100"
+                                Grid.Column="1" Grid.Row="1"/>-->
 
 
                 </StackPanel>
+
             </Border>
-        </DockPanel>
-        <Button Grid.Row="14" Grid.Column="2" Grid.ColumnSpan="2" 
+        </ScrollViewer>
+        <Button Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2" 
                 Content="Get List Product" 
                 Click="GetListProduct"
                 Background="LightGreen" Margin="25,25,0,0"
                 Height="24" VerticalAlignment="Top"/>
-        <Button Grid.Column="4" Grid.Row="14"
+        <Button Grid.Column="3" Grid.Row="14"
                 Content="Сохранить" 
                 HorizontalAlignment="Left" Margin="25,25,0,0" 
                 Click="Button_Save" 

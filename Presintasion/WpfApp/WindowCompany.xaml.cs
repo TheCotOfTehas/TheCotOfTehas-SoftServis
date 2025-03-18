@@ -72,9 +72,10 @@ namespace WpfApp
                 Mails.Text = "Не задано";
 
             INN.Text = CompanyCurrent.INN.ToString();
-            var historiBlock = string.IsNullOrEmpty(HistoriBlock.Text) ? $"Это начало истории компании \r\n {DateTime.Now} \r\n" : HistoriBlock.Text;
-            HistoriBlock.Text = historiBlock;
-            HistoriBlock.Text += ReadText();
+            //var historiBlock = string.IsNullOrEmpty(HistoriBlock.Text) ? $"Это начало истории компании \r\n {DateTime.Now} \r\n" : HistoriBlock.Text;
+            //HistoriBlock.Text = historiBlock;
+            //HistoriBlock.Text += ReadText();
+            ReadText();
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
@@ -89,9 +90,17 @@ namespace WpfApp
 
         private string ReadText()
         {
+            var f = CompanyCurrent.Histories;
             string message = "";
             foreach (HistoryCompany item in CompanyCurrent.Histories)
-                message += $"{item.Message}    {item.DateMessage} \r\n";
+            {
+                var currentHistory = new PatrialPage();
+                currentHistory.CurrentMassegBox.Text = item.Message;
+                currentHistory.CurrentDate.Text = item.DateMessage.Day.ToString() + item.DateMessage.Month.ToString() + item.DateMessage.Year.ToString();
+                currentHistory.CurrentTime.Text = item.DateMessage.Hour.ToString() + item.DateMessage.Minute;
+                StackPanelHistori.Children.Add(currentHistory);
+                //message += $"{item.Message}    {item.DateMessage} \r\n";
+            }
             
             return message;
         }

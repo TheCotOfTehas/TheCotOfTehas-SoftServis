@@ -7,10 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="70" d:DesignWidth="400"
              x:Name="Patrial">
-    <Border Background="White" >
+    <Border Background="LightBlue" >
         <StackPanel>
-            <Border BorderBrush ="Blue" CornerRadius="25" 
-                    BorderThickness="2" Background="LightBlue"
+            <Border BorderBrush ="Green" Background="LightGreen" CornerRadius="25" 
+                    BorderThickness="2"
                     Height="50">
                 <TextBlock Margin="5" TextWrapping="Wrap" x:Name="CurrentMassegBox">
                     Тут должен быть размещён текст сообщения
