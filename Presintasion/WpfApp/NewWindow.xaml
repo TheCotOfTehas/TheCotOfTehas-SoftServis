@@ -1,0 +1,77 @@
+﻿<Window x:Class="WpfApp.NewWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="NewWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <!--нулевая колонка-->
+            <ColumnDefinition Width="10"/> 
+            <ColumnDefinition Width="8.3*"/>
+            <ColumnDefinition Width="8.3*"/>
+            <ColumnDefinition Width="8.3*"/>
+            <ColumnDefinition Width="8.3*"/>
+            <ColumnDefinition Width="8.3*"/>
+            <!--Шестая колонка деформационная-->
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8.3*"/>
+            <ColumnDefinition Width="8.3*"/>
+            <ColumnDefinition Width="8.3*"/>
+            <ColumnDefinition Width="8.3*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="8.3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Label FontWeight="Bold" FontSize="18" 
+            Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="7"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" Content="Стартовое диалоговое окно получаем ( emails компании)"/>
+        <Button x:Name="GetEmail" Grid.Row ="2" Grid.Column="1"
+                Margin="0 0 0 0" Click="GetEmail_Click" 
+                Width="90" Height="26" 
+                Content="Emails"/>
+        <Button x:Name="GetCompanys" 
+                Grid.Row ="2" Grid.Column="3"
+                Width="90" Height="26" 
+                Click="GetCompanies_Click" Content="Companys"/>
+        <ScrollViewer Grid.Row="3" Grid.Column="1" 
+                      Grid.ColumnSpan="4" Grid.RowSpan="7">
+            <TextBox x:Name="InnerBox" Background="LightCyan" Text="Тут будет выводиться инфа" 
+                 FontSize="20" TextWrapping="Wrap" Margin="5 5 5 5"/>
+        </ScrollViewer>
+        <TextBox x:Name="NewOpenCompany" 
+                 Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"
+                 Background="LightCyan" Text="" 
+                 Height="30" FontSize="20" TextWrapping="Wrap"/>
+        <Button Margin="2 10 0 0" Click="OpenCompany_Click" 
+                Grid.Row="10" Grid.Column="4" Content="Открыть"
+                Background="LightGreen" Height="30" FontSize="20"/>
+
+        <Button Content="Добавить Компанию" HorizontalAlignment="Left" 
+                Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2"
+                VerticalAlignment="Top" Width="145" 
+                Height="30" Click="Button_Click_Add_Company"/>
+        <Button Content="Добавить почту" HorizontalAlignment="Left" 
+                Grid.Row="3" Grid.Column="8" Grid.ColumnSpan="2" 
+                VerticalAlignment="Center" Width="145" 
+                Height="30" Click="Button_Click_Add_Mails"/>
+    </Grid>
+    
+</Window>

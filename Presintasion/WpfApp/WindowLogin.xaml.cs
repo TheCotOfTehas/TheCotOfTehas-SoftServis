@@ -32,8 +32,10 @@ namespace WpfApp
         {
             if (LoginTextBox.Text == Login && PasswordTextBox.Password == Password)
             {
-                MainWindow mainWindow = new MainWindow(dataServis);
-                mainWindow.Show();
+                //MainWindow mainWindow = new MainWindow(dataServis);
+                NewWindow newWindow = new NewWindow(dataServis);
+                //mainWindow.Show();
+                newWindow.Show();
                 this.Close();
             }
             else

@@ -84,7 +84,11 @@ namespace WpfApp
                 stackPanelBig.Children.Add(borderDataSell);
                 stackPanelBig.Children.Add(borderLicenseValidity);
                 stackPanelBig.Children.Add(borderNameManager);
+                //stackPanelBig.Children.Add(new PatrialPage());
+                //stackPanelBig.Children.Add(new PatrialPage());
+                //stackPanelBig.Children.Add(new PatrialPage());
                 GGWP.Children.Add(borderBig);
+                //GGWP.Children.Add(new PatrialPage());
             }
         }
 

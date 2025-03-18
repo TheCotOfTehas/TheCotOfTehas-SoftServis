@@ -28,13 +28,13 @@
                  Margin="186,7,524,7" Click="GetEmail_Click">Emails</Button>
         <Button  x:Name="GetCompanys" Grid.Row ="1"
             Width="90" Height="26" 
-            Margin="49,7,661,7" Click="GetCompanys_Click" Content="Companys"/>
+            Margin="49,7,661,7" Click="GetCompanies_Click" Content="Companys"/>
 
         <DataGrid x:Name="DataGrid" Grid.Row="2"/>
         <TextBox x:Name="InnerBox" Grid.Row="3" 
                  Background="LightCyan" Text="" 
                  Margin="23,0,500,-250" 
-                 FontSize="20"/>
+                 FontSize="20 "  TextWrapping="Wrap"/>
         <StackPanel Orientation="Horizontal" Grid.Row="10" >
             <TextBox Width="250" Height="200" Background="LightGreen" Margin="25 10 0 0 " FontSize="20" x:Name="OpenCompany"/>
             <Button Margin="2 10 0 0" Click="OpenCompany_Click">Открыть</Button>

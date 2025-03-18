@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
-        Title="WindowCompany" Height="450" Width="800" FontSize="15">
+        Title="WindowCompany" Height="450" Width="800" FontSize="15" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15"/>
@@ -87,9 +87,20 @@
                 <StackPanel>
                     <TextBlock x:Name="HistoriBlock" Margin="5" TextWrapping="Wrap" Text = ""/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBox TextWrapping="Wrap" x:Name="HistoriBox" Text="Введите сообщение"/>
-                        <Button x:Name="HistoriButton" BorderBrush="Black" Background="LightBlue" BorderThickness="2" Margin="20 5 5 5" Click="Button_Send_Messed">отправить</Button>
+                        <TextBox MaxWidth="220" TextWrapping="Wrap" x:Name="HistoriBox" Text="Введите сообщение"/>
+                        <Button x:Name="HistoriButton" BorderBrush="Black" 
+                                Background="LightBlue" BorderThickness="2" 
+                                Padding="5" Margin="5 5 5 5" 
+                                Height="30"
+                                HorizontalAlignment="Center"
+                                Click="Button_Send_Messed">отправить</Button>
                     </StackPanel>
+                    <!--<local:Page1 x:Name="Page" Grid.Column="0" />-->
+                    <!--<Frame  Source="Page1.xaml" Margin="10"
+                        BorderBrush="LimeGreen" BorderThickness="100"
+                            Grid.Column="1" Grid.Row="1"/>-->
+
+
                 </StackPanel>
             </Border>
         </DockPanel>

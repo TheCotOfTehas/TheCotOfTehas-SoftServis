@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SoftServis;
+﻿using SoftServis;
 using SoftServis.Memory;
-using System.Printing;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -10,21 +12,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfApp.Model;
 
 namespace WpfApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для NewWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class NewWindow : Window
     {
-        ApplicationContext DataBase{ get; set; }
+        ApplicationContext DataBase { get; set; }
 
         private readonly DataServis DataServis;
-        public MainWindow(DataServis dataServes)
+        public NewWindow(DataServis dataServes)
         {
             InitializeComponent();
             this.DataServis = dataServes;
@@ -40,6 +41,7 @@ namespace WpfApp
             List<Company> companies = WorkClass.GetContentBD();
             DataBase.AddRange(companies.ToArray());
         }
+
         private void Window_LoadedEmails(object sender, RoutedEventArgs e)
         {
             DataContext = DataBase.Companies.Local.ToObservableCollection();
@@ -87,8 +89,8 @@ namespace WpfApp
         private void OpenCompany_Click(object sender, RoutedEventArgs e)
         {
             var listCompany = DataBase.Companies;
-            var nameCompany = OpenCompany.Text.ToString();
-            var company = listCompany.FirstOrDefault(x =>x.ShortName.CompareTo(nameCompany) == 0);
+            var nameCompany = NewOpenCompany.Text.ToString();
+            var company = listCompany.FirstOrDefault(x => x.ShortName.CompareTo(nameCompany) == 0);
             if (company != null)
             {
                 var windowCompany = new WindowCompany(DataBase, company.Id);
