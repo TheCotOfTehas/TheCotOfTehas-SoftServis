@@ -25,16 +25,16 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
-            <RowDefinition MinHeight="45" Height="8.3*"/>
-            <RowDefinition MinHeight="45" Height="8.3*"/>
-            <RowDefinition MinHeight="45" Height="8.3*"/>
+            <RowDefinition MinHeight="45" Height="45"/>
+            <RowDefinition MinHeight="45" Height="45"/>
+            <RowDefinition MinHeight="45" Height="45"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
-            <RowDefinition MinHeight="45" Height="8.3*"/>
+            <RowDefinition MinHeight="45" Height="45"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
