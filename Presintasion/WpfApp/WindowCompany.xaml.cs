@@ -53,8 +53,12 @@ namespace WpfApp
             var text = HistoriBox.Text;
             var date = DateTime.Now;
             var historyCompany = new HistoryCompany(text);
-            HistoriBlock.Text += $"{historyCompany.Message}  {historyCompany.DateMessage} \r\n";
             CompanyCurrent.Histories.Add(historyCompany);
+            var currentHistory = new PatrialPage();
+            currentHistory.CurrentMassegBox.Text = text;
+            currentHistory.CurrentDate.Text = date.Day.ToString() + date.Month.ToString() + date.Year.ToString();
+            currentHistory.CurrentTime.Text = date.Hour.ToString() + date.Minute;
+            StackPanelHistori.Children.Add(currentHistory);
             DataBase.SaveChanges();
         }
 

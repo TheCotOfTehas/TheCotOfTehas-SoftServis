@@ -96,8 +96,6 @@
                         <Frame  Source="Page1.xaml" Margin="10"
                             BorderBrush="LimeGreen" BorderThickness="100"
                                 Grid.Column="1" Grid.Row="1"/>-->
-
-
                 </StackPanel>
 
             </Border>
