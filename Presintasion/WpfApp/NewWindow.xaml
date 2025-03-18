@@ -9,11 +9,11 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <!--нулевая колонка-->
-            <ColumnDefinition Width="10"/> 
-            <ColumnDefinition Width="8.3*"/>
-            <ColumnDefinition Width="8.3*"/>
-            <ColumnDefinition Width="8.3*"/>
-            <ColumnDefinition Width="8.3*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition MinWidth="100" Width="8.3*"/>
+            <ColumnDefinition MinWidth="100" Width="8.3*"/>
+            <ColumnDefinition MinWidth="100" Width="8.3*"/>
+            <ColumnDefinition MinWidth="100" Width="8.3*"/>
             <ColumnDefinition Width="8.3*"/>
             <!--Шестая колонка деформационная-->
             <ColumnDefinition Width="*"/>
@@ -25,16 +25,16 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
+            <RowDefinition MinHeight="45" Height="8.3*"/>
+            <RowDefinition MinHeight="45" Height="8.3*"/>
+            <RowDefinition MinHeight="45" Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
             <RowDefinition Height="8.3*"/>
-            <RowDefinition Height="8.3*"/>
-            <RowDefinition Height="8.3*"/>
-            <RowDefinition Height="8.3*"/>
-            <RowDefinition Height="8.3*"/>
+            <RowDefinition MinHeight="45" Height="8.3*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
