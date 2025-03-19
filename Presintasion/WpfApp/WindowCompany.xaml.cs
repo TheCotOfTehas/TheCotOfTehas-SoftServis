@@ -54,7 +54,7 @@ namespace WpfApp
             var date = DateTime.Now;
             var historyCompany = new HistoryCompany(text);
             CompanyCurrent.Histories.Add(historyCompany);
-            var currentHistory = new PatrialPage();
+            var currentHistory = new PatrialPage(DataBase, CompanyCurrent);
             currentHistory.CurrentMassegBox.Text = text;
             currentHistory.CurrentDate.Text = date.Day.ToString() + date.Month.ToString() + date.Year.ToString();
             currentHistory.CurrentTime.Text = date.Hour.ToString() + date.Minute;
@@ -95,7 +95,7 @@ namespace WpfApp
             string message = "";
             foreach (HistoryCompany item in CompanyCurrent.Histories)
             {
-                var currentHistory = new PatrialPage();
+                var currentHistory = new PatrialPage(DataBase, CompanyCurrent);
                 currentHistory.CurrentMassegBox.Text = item.Message;
                 currentHistory.CurrentDate.Text = $"{item.DateMessage.Day}.{item.DateMessage.Month}.{item.DateMessage.Year}";
                 currentHistory.CurrentTime.Text = $"{item.DateMessage.Hour}:{item.DateMessage.Minute}";

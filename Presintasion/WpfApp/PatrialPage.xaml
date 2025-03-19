@@ -16,15 +16,14 @@
             </Canvas>
             <TextBlock Name="CurrentMassegBox"  Padding="30 30 60 30" TextWrapping="Wrap"
          Text="{Binding Text, ElementName=root}"/>
-            <!--<Border BorderBrush ="Green" Background="LightGreen" CornerRadius="25" 
-                    BorderThickness="2"
-                    Height="50">
-                
-                <TextBlock Margin="5" TextWrapping="Wrap" x:Name="CurrentMassegBox">
-                    Тут должен быть размещён текст сообщения
-                </TextBlock>
-            </Border>-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Background="Red" FontSize="20" Content="X" Click="DeleteMessage">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
                 <TextBlock  Width="70"  Text="10.02.2025" x:Name="CurrentDate"/>
                 <TextBlock Text="09:09" x:Name="CurrentTime"></TextBlock>
             </StackPanel>

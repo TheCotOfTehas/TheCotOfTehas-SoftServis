@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using SoftServis;
+using SoftServis.Memory;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,19 @@ namespace WpfApp
     /// </summary>
     public partial class PatrialPage : UserControl
     {
-        public PatrialPage()
+        ApplicationContext DataBase {  get; set; }
+        Company CompanyCurrent { get; set; }
+        public PatrialPage(ApplicationContext dataBase, Company companyCurrent)
         {
             InitializeComponent();
+            DataBase = dataBase;
+            CompanyCurrent = companyCurrent;
+        }
+
+        private void DeleteMessage(object sender, RoutedEventArgs e)
+        {
+           
+            var histore = CompanyCurrent.Histories;
         }
     }
 }
