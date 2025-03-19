@@ -64,7 +64,7 @@ namespace WpfApp
             {
                 foreach (var mail in mails)
                 {
-                    InnerBox.Text += " " + mail.MailName + "\r\n";
+                    InnerBox.Text += "\r\n" + mail.MailName;
                 }
             }
         }
