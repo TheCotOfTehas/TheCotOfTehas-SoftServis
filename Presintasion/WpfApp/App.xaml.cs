@@ -21,7 +21,7 @@ namespace WpfApp
             serviceProvider = serviceCollection.BuildServiceProvider();
             base.OnStartup(e);
 
-           NewWindow mainWindow = serviceProvider.GetRequiredService<NewWindow>();
+           NewWindow newWindow = serviceProvider.GetRequiredService<NewWindow>();
         }
     }
 

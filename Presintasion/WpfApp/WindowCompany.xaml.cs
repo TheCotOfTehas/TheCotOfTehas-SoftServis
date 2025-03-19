@@ -97,8 +97,8 @@ namespace WpfApp
             {
                 var currentHistory = new PatrialPage();
                 currentHistory.CurrentMassegBox.Text = item.Message;
-                currentHistory.CurrentDate.Text = item.DateMessage.Day.ToString() + item.DateMessage.Month.ToString() + item.DateMessage.Year.ToString();
-                currentHistory.CurrentTime.Text = item.DateMessage.Hour.ToString() + item.DateMessage.Minute;
+                currentHistory.CurrentDate.Text = $"{item.DateMessage.Day}.{item.DateMessage.Month}.{item.DateMessage.Year}";
+                currentHistory.CurrentTime.Text = $"{item.DateMessage.Hour}:{item.DateMessage.Minute}";
                 StackPanelHistori.Children.Add(currentHistory);
             }
             
