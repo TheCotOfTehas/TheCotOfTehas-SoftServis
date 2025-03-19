@@ -17,11 +17,11 @@ namespace WpfApp
         {
             serviceCollection = new ServiceCollection();
             serviceCollection.AddSingleton<DataServis>();    
-            serviceCollection.AddScoped<MainWindow>();
+            serviceCollection.AddScoped<NewWindow>();
             serviceProvider = serviceCollection.BuildServiceProvider();
             base.OnStartup(e);
 
-            MainWindow mainWindow = serviceProvider.GetRequiredService<MainWindow>();
+           NewWindow mainWindow = serviceProvider.GetRequiredService<NewWindow>();
         }
     }
 
