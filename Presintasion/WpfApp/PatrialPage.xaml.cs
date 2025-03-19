@@ -3,6 +3,7 @@ using SoftServis;
 using SoftServis.Memory;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,8 +35,14 @@ namespace WpfApp
 
         private void DeleteMessage(object sender, RoutedEventArgs e)
         {
-           
-            var histore = CompanyCurrent.Histories;
+            var one = int.Parse(this.Uid);
+            var three = int.Parse(CompanyCurrent.Histories.First().Id.ToString());
+            var id = one - three;
+            CompanyCurrent.Histories.RemoveAt(id);
+            MessageBox.Show("Сообщение удалено");
+            DataBase.SaveChanges();
+            WindowCompany windowCompany = new WindowCompany(DataBase, CompanyCurrent.Id);
+            windowCompany.Show();
         }
     }
 }

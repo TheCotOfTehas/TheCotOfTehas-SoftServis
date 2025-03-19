@@ -30,7 +30,7 @@ namespace WpfApp
         Company CompanyCurrent { get; set;}
         ApplicationContext DataBase {  get; set; }
 
-        public WindowCompany(ApplicationContext dataBase,  int idCompany)
+        public WindowCompany(ApplicationContext dataBase, int idCompany)
         {
             InitializeComponent();
             DataBase = dataBase;
@@ -56,8 +56,9 @@ namespace WpfApp
             CompanyCurrent.Histories.Add(historyCompany);
             var currentHistory = new PatrialPage(DataBase, CompanyCurrent);
             currentHistory.CurrentMassegBox.Text = text;
-            currentHistory.CurrentDate.Text = date.Day.ToString() + date.Month.ToString() + date.Year.ToString();
-            currentHistory.CurrentTime.Text = date.Hour.ToString() + date.Minute;
+            currentHistory.CurrentDate.Text = $"{date.Day}.{date.Month}.{date.Year}";
+            currentHistory.CurrentTime.Text = $"{date.Hour}:{date.Minute}";
+            currentHistory.Uid = $"{CompanyCurrent.Histories.Count() - 1}";
             StackPanelHistori.Children.Add(currentHistory);
             DataBase.SaveChanges();
         }
@@ -99,41 +100,11 @@ namespace WpfApp
                 currentHistory.CurrentMassegBox.Text = item.Message;
                 currentHistory.CurrentDate.Text = $"{item.DateMessage.Day}.{item.DateMessage.Month}.{item.DateMessage.Year}";
                 currentHistory.CurrentTime.Text = $"{item.DateMessage.Hour}:{item.DateMessage.Minute}";
+                currentHistory.Uid = $"{item.Id}";
                 StackPanelHistori.Children.Add(currentHistory);
             }
             
             return message;
-        }
-
-        private static string ReadWithFileText(long INN)
-        {
-            string text = "";
-            if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
-            {
-                using StreamReader strRdrText = new($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
-                text = strRdrText.ReadToEnd();
-            }
-            else
-            {
-                MessageBox.Show("Файла для записи не существует");
-                File.Create($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
-            }
-
-            return text;
-        }
-
-        private static void WriteInFileText(long INN, string text, DateTime dateTime)
-        {
-            if (File.Exists($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt"))
-            {
-                using StreamWriter strWriter = new($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt", true);
-                strWriter.WriteLine($"{text} + {dateTime}");
-            }
-            else
-            {
-                MessageBox.Show("Файла для чтения не существует. Был Создан новый");
-                File.Create($"C:\\Users\\tsebr\\OneDrive\\Рабочий стол\\ПапкаИсторийКомпаний\\{INN}.txt");
-            }
         }
 
         private void Mails_TextChanged(object sender, RoutedEventArgs e)

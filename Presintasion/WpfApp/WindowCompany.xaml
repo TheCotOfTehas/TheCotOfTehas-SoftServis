@@ -80,7 +80,7 @@
         </ListView>
         <!--Блок с историей взаимодействия-->
         <ScrollViewer Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan ="9" MinWidth="200" Background="LightBlue">
-            <Border Margin="5 5 5 5" BorderBrush="Black" BorderThickness="2">
+            <Border Margin="5 5 5 5" BorderBrush="Black" BorderThickness="2" x:Name="myGrid">
                 <StackPanel x:Name="StackPanelHistori">
                     <TextBlock x:Name="HistoriBlock" Margin="5" TextWrapping="Wrap" Text = ""/>
                     <StackPanel Orientation="Horizontal">

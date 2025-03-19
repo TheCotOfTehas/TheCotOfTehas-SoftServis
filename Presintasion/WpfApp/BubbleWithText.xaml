@@ -9,7 +9,7 @@
              Height="{Binding ActualHeight, ElementName=tb}"
              Width="{Binding ActualWidth, ElementName=tb}"/>
         </Canvas>
-        <TextBlock Name="tb" Padding="20" TextWrapping="Wrap"
+        <TextBlock Name="tb" x:Uid="" Padding="20" TextWrapping="Wrap"
                 Text="{Binding Text, ElementName=root}"/>
     </Grid>
 </UserControl>
