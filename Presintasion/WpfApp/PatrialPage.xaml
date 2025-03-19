@@ -14,7 +14,7 @@
                   Height="{Binding ActualHeight, ElementName=CurrentMassegBox}"
                   Width="{Binding ActualWidth, ElementName=CurrentMassegBox}"/>
             </Canvas>
-            <TextBlock Name="CurrentMassegBox"  Padding="30 30 30 30" TextWrapping="Wrap"
+            <TextBlock Name="CurrentMassegBox"  Padding="30 30 60 30" TextWrapping="Wrap"
          Text="{Binding Text, ElementName=root}"/>
             <!--<Border BorderBrush ="Green" Background="LightGreen" CornerRadius="25" 
                     BorderThickness="2"

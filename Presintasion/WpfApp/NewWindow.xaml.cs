@@ -53,7 +53,7 @@ namespace WpfApp
 
             foreach (var company in ListCompany)
             {
-                InnerBox.Text += " " + company + "\r\n";
+                InnerBox.Text += "\r\n" + company;
             }
         }
 
