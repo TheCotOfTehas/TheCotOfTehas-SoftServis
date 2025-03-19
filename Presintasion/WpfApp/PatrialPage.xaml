@@ -9,13 +9,21 @@
              x:Name="Patrial">
     <Border Background="LightBlue" >
         <StackPanel>
-            <Border BorderBrush ="Green" Background="LightGreen" CornerRadius="25" 
+            <Canvas>
+                <local:Bubble
+                  Height="{Binding ActualHeight, ElementName=CurrentMassegBox}"
+                  Width="{Binding ActualWidth, ElementName=CurrentMassegBox}"/>
+            </Canvas>
+            <TextBlock Name="CurrentMassegBox"  Padding="30 30 30 30" TextWrapping="Wrap"
+         Text="{Binding Text, ElementName=root}"/>
+            <!--<Border BorderBrush ="Green" Background="LightGreen" CornerRadius="25" 
                     BorderThickness="2"
                     Height="50">
+                
                 <TextBlock Margin="5" TextWrapping="Wrap" x:Name="CurrentMassegBox">
                     Тут должен быть размещён текст сообщения
                 </TextBlock>
-            </Border>
+            </Border>-->
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock  Width="70"  Text="10.02.2025" x:Name="CurrentDate"/>
                 <TextBlock Text="09:09" x:Name="CurrentTime"></TextBlock>

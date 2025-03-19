@@ -103,6 +103,9 @@ namespace WpfApp
                 currentHistory.CurrentDate.Text = item.DateMessage.Day.ToString() + item.DateMessage.Month.ToString() + item.DateMessage.Year.ToString();
                 currentHistory.CurrentTime.Text = item.DateMessage.Hour.ToString() + item.DateMessage.Minute;
                 StackPanelHistori.Children.Add(currentHistory);
+                var t = new BubbleWithText();
+                //t.Text = item.Message;
+                //StackPanelHistori.Children.Add(t);
                 //message += $"{item.Message}    {item.DateMessage} \r\n";
             }
             
