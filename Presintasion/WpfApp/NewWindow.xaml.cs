@@ -24,11 +24,11 @@ namespace WpfApp
     {
         ApplicationContext DataBase { get; set; }
 
-        private readonly DataServis DataServis;
+        private readonly DataServis Servis;
         public NewWindow(DataServis dataServes)
         {
             InitializeComponent();
-            this.DataServis = dataServes;
+            this.Servis = dataServes;
             DataBase = new ApplicationContext();
             //MyInitBD();
             DataBase.SaveChanges();
@@ -82,7 +82,7 @@ namespace WpfApp
 
         private void Button_OpenWindowCompany(object sender, RoutedEventArgs e)
         {
-            WindowCompany windowCompany = new WindowCompany(DataBase, 0);
+            WindowCompany windowCompany = new WindowCompany(DataBase, Servis, 0);
             windowCompany.Show();
         }
 
@@ -93,7 +93,7 @@ namespace WpfApp
             var company = listCompany.FirstOrDefault(x => x.ShortName.CompareTo(nameCompany) == 0);
             if (company != null)
             {
-                var windowCompany = new WindowCompany(DataBase, company.Id);
+                var windowCompany = new WindowCompany(DataBase, Servis, company.Id);
                 windowCompany.Show();
             }
             else

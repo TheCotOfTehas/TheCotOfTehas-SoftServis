@@ -29,11 +29,13 @@ namespace WpfApp
     {
         Company CompanyCurrent { get; set;}
         ApplicationContext DataBase {  get; set; }
+        DataServis Servis { get; set; }
 
-        public WindowCompany(ApplicationContext dataBase, int idCompany)
+        public WindowCompany(ApplicationContext dataBase, DataServis dataServis, int idCompany)
         {
             InitializeComponent();
             DataBase = dataBase;
+            Servis = dataServis;
 
             var companyCurrent  = DataBase
                         .Companies
@@ -54,7 +56,7 @@ namespace WpfApp
             var date = DateTime.Now;
             var historyCompany = new HistoryCompany(text);
             CompanyCurrent.Histories.Add(historyCompany);
-            var currentHistory = new PatrialPage(DataBase, CompanyCurrent);
+            var currentHistory = new PatrialPage(DataBase, Servis, CompanyCurrent);
             currentHistory.CurrentMassegBox.Text = text;
             currentHistory.CurrentDate.Text = $"{date.Day}.{date.Month}.{date.Year}";
             currentHistory.CurrentTime.Text = $"{date.Hour}:{date.Minute}";
@@ -96,7 +98,7 @@ namespace WpfApp
             string message = "";
             foreach (HistoryCompany item in CompanyCurrent.Histories)
             {
-                var currentHistory = new PatrialPage(DataBase, CompanyCurrent);
+                var currentHistory = new PatrialPage(DataBase, Servis, CompanyCurrent);
                 currentHistory.CurrentMassegBox.Text = item.Message;
                 currentHistory.CurrentDate.Text = $"{item.DateMessage.Day}.{item.DateMessage.Month}.{item.DateMessage.Year}";
                 currentHistory.CurrentTime.Text = $"{item.DateMessage.Hour}:{item.DateMessage.Minute}";

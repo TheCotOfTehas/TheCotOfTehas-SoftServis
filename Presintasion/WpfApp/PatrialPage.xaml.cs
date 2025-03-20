@@ -26,10 +26,15 @@ namespace WpfApp
     {
         ApplicationContext DataBase {  get; set; }
         Company CompanyCurrent { get; set; }
-        public PatrialPage(ApplicationContext dataBase, Company companyCurrent)
+
+        DataServis Servis { get; set; }
+
+
+        public PatrialPage(ApplicationContext dataBase, DataServis dataServis, Company companyCurrent)
         {
             InitializeComponent();
             DataBase = dataBase;
+            Servis = dataServis;
             CompanyCurrent = companyCurrent;
         }
 
@@ -41,7 +46,8 @@ namespace WpfApp
             CompanyCurrent.Histories.RemoveAt(id);
             MessageBox.Show("Сообщение удалено");
             DataBase.SaveChanges();
-            WindowCompany windowCompany = new WindowCompany(DataBase, CompanyCurrent.Id);
+            //Далие хрень не рабочая
+            WindowCompany windowCompany = new WindowCompany(DataBase, Servis, CompanyCurrent.Id);
             windowCompany.Show();
         }
     }
