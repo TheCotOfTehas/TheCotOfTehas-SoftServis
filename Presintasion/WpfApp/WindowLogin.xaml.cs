@@ -26,6 +26,7 @@ namespace WpfApp
         public WindowLogin()
         {
             InitializeComponent();
+            dataServis = new DataServis();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

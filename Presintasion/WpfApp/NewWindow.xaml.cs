@@ -28,7 +28,8 @@ namespace WpfApp
         public NewWindow(DataServis dataServes)
         {
             InitializeComponent();
-            this.Servis = dataServes;
+            Servis = dataServes;
+            Servis = new DataServis();
             DataBase = new ApplicationContext();
             //MyInitBD();
             DataBase.SaveChanges();

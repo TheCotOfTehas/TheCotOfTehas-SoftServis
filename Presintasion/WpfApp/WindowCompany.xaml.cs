@@ -36,16 +36,16 @@ namespace WpfApp
             InitializeComponent();
             DataBase = dataBase;
             Servis = dataServis;
+            CompanyCurrent = Servis.GetCompany(idCompany);
+            //var companyCurrent  = DataBase
+            //            .Companies
+            //            .Include(company => company.Histories)
+            //            .Include(company => company.Mails)
+            //            .Include(company => company.Products)
+            //            .Where(x => x.Id == idCompany)
+            //            .FirstOrDefault();
 
-            var companyCurrent  = DataBase
-                        .Companies
-                        .Include(company => company.Histories)
-                        .Include(company => company.Mails)
-                        .Include(company => company.Products)
-                        .Where(x => x.Id == idCompany)
-                        .FirstOrDefault();
-
-            CompanyCurrent = companyCurrent != null ? companyCurrent : new Company();
+            //CompanyCurrent = companyCurrent != null ? companyCurrent : new Company();
             FillOutForm();
         }
 
