@@ -4,6 +4,7 @@ using SoftServis;
 using SoftServis.Memory;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Printing;
@@ -37,18 +38,8 @@ namespace WpfApp
             DataBase = dataBase;
             Servis = dataServis;
             CompanyCurrent = Servis.GetCompany(idCompany);
-            //var companyCurrent  = DataBase
-            //            .Companies
-            //            .Include(company => company.Histories)
-            //            .Include(company => company.Mails)
-            //            .Include(company => company.Products)
-            //            .Where(x => x.Id == idCompany)
-            //            .FirstOrDefault();
-
-            //CompanyCurrent = companyCurrent != null ? companyCurrent : new Company();
             FillOutForm();
         }
-
 
         private void Button_Send_Messed(object sender, RoutedEventArgs e)
         {
@@ -92,10 +83,8 @@ namespace WpfApp
             MessageBox.Show("Информация сохранена");
         }
 
-        private string ReadText()
+        private void ReadText()
         {
-            var f = CompanyCurrent.Histories;
-            string message = "";
             foreach (HistoryCompany item in CompanyCurrent.Histories)
             {
                 var currentHistory = new PatrialPage(DataBase, Servis, CompanyCurrent);
@@ -105,8 +94,6 @@ namespace WpfApp
                 currentHistory.Uid = $"{item.Id}";
                 StackPanelHistori.Children.Add(currentHistory);
             }
-            
-            return message;
         }
 
         private void Mails_TextChanged(object sender, RoutedEventArgs e)
@@ -124,6 +111,12 @@ namespace WpfApp
         {
             var list = new WindowListProduct(DataBase, CompanyCurrent);
             list.Show();
+        }
+
+        public void RefrefhChangesHistory()
+        {
+            StackPanelHistori.Children.Clear();
+            ReadText();
         }
     }
 }

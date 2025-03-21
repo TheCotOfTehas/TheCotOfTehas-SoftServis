@@ -46,9 +46,14 @@ namespace WpfApp
             CompanyCurrent.Histories.RemoveAt(id);
             MessageBox.Show("Сообщение удалено");
             DataBase.SaveChanges();
+            
             //Далие хрень не рабочая
-            WindowCompany windowCompany = new WindowCompany(DataBase, Servis, CompanyCurrent.Id);
-            windowCompany.Show();
+            //WindowCompany windowCompany = new WindowCompany(DataBase, Servis, CompanyCurrent.Id);
+            //windowCompany.Show();
+            //CompanyCurrent.RefrefhChangesHistory();
+            var f = Application.Current.Windows.OfType<Window>().Where(x => x.Name == "WindowCompanyD").SingleOrDefault(x => x.IsActive);
+            var t = f as WindowCompany;
+            t.RefrefhChangesHistory();
         }
     }
 }
