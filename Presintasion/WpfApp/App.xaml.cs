@@ -16,12 +16,12 @@ namespace WpfApp
         protected override void OnStartup(StartupEventArgs e)
         {
             serviceCollection = new ServiceCollection();
-            serviceCollection.AddSingleton<DataServis>();    
-            serviceCollection.AddScoped<NewWindow>();
+            serviceCollection.AddSingleton<DataServes>();    
+            serviceCollection.AddScoped<MainWindow>();
             serviceProvider = serviceCollection.BuildServiceProvider();
             base.OnStartup(e);
 
-           NewWindow newWindow = serviceProvider.GetRequiredService<NewWindow>();
+           MainWindow newWindow = serviceProvider.GetRequiredService<MainWindow>();
         }
     }
 

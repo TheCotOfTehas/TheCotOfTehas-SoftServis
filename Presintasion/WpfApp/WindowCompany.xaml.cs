@@ -30,14 +30,14 @@ namespace WpfApp
     {
         Company CompanyCurrent { get; set;}
         ApplicationContext DataBase {  get; set; }
-        DataServis Servis { get; set; }
+        DataServes Serves { get; set; }
 
-        public WindowCompany(ApplicationContext dataBase, DataServis dataServis, int idCompany)
+        public WindowCompany(ApplicationContext dataBase, DataServes dataServes, int idCompany)
         {
             InitializeComponent();
             DataBase = dataBase;
-            Servis = dataServis;
-            CompanyCurrent = Servis.GetCompany(idCompany);
+            Serves = dataServes;
+            CompanyCurrent = Serves.GetCompany(idCompany);
             FillOutForm();
         }
 
@@ -47,7 +47,7 @@ namespace WpfApp
             var date = DateTime.Now;
             var historyCompany = new HistoryCompany(text);
             CompanyCurrent.Histories.Add(historyCompany);
-            var currentHistory = new PatrialPage(DataBase, Servis, CompanyCurrent);
+            var currentHistory = new PartialPage(DataBase, Serves, CompanyCurrent);
             currentHistory.CurrentMassegBox.Text = text;
             currentHistory.CurrentDate.Text = $"{date.Day}.{date.Month}.{date.Year}";
             currentHistory.CurrentTime.Text = $"{date.Hour}:{date.Minute}";
@@ -87,7 +87,7 @@ namespace WpfApp
         {
             foreach (HistoryCompany item in CompanyCurrent.Histories)
             {
-                var currentHistory = new PatrialPage(DataBase, Servis, CompanyCurrent);
+                var currentHistory = new PartialPage(DataBase, Serves, CompanyCurrent);
                 currentHistory.CurrentMassegBox.Text = item.Message;
                 currentHistory.CurrentDate.Text = $"{item.DateMessage.Day}.{item.DateMessage.Month}.{item.DateMessage.Year}";
                 currentHistory.CurrentTime.Text = $"{item.DateMessage.Hour}:{item.DateMessage.Minute}";
@@ -113,7 +113,7 @@ namespace WpfApp
             list.Show();
         }
 
-        public void RefrefhChangesHistory()
+        public void RefreshChangesHistory()
         {
             StackPanelHistori.Children.Clear();
             ReadText();

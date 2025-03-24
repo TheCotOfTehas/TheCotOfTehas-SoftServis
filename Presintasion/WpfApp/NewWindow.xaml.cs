@@ -20,12 +20,12 @@ namespace WpfApp
     /// <summary>
     /// Логика взаимодействия для NewWindow.xaml
     /// </summary>
-    public partial class NewWindow : Window
+    public partial class MainWindow : Window
     {
         ApplicationContext DataBase { get; set; }
 
         private readonly DataServis Servis;
-        public NewWindow(DataServis dataServes)
+        public MainWindow(DataServis dataServes)
         {
             InitializeComponent();
             Servis = dataServes;

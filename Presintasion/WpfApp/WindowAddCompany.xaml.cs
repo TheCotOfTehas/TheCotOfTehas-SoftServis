@@ -25,7 +25,7 @@ namespace WpfApp
     public partial class AddCompany : Window
     {
         ApplicationContext DataBase = new ApplicationContext();
-        DataServis dataServis;
+        DataServes dataServis;
         public AddCompany(ApplicationContext dataBase)
         {
             InitializeComponent();

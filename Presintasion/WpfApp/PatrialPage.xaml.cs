@@ -20,21 +20,21 @@ using System.Windows.Shapes;
 namespace WpfApp
 {
     /// <summary>
-    /// Логика взаимодействия для PatrialPage.xaml
+    /// Логика взаимодействия для partialPage.xaml
     /// </summary>
-    public partial class PatrialPage : UserControl
+    public partial class PartialPage : UserControl
     {
         ApplicationContext DataBase {  get; set; }
         Company CompanyCurrent { get; set; }
 
-        DataServis Servis { get; set; }
+        DataServes Serves { get; set; }
 
 
-        public PatrialPage(ApplicationContext dataBase, DataServis dataServis, Company companyCurrent)
+        public PartialPage(ApplicationContext dataBase, DataServes dataServes, Company companyCurrent)
         {
             InitializeComponent();
             DataBase = dataBase;
-            Servis = dataServis;
+            Serves = dataServes;
             CompanyCurrent = companyCurrent;
         }
 
@@ -48,12 +48,12 @@ namespace WpfApp
             DataBase.SaveChanges();
             
             //Далие хрень не рабочая
-            //WindowCompany windowCompany = new WindowCompany(DataBase, Servis, CompanyCurrent.Id);
+            //WindowCompany windowCompany = new WindowCompany(DataBase, Serves, CompanyCurrent.Id);
             //windowCompany.Show();
-            //CompanyCurrent.RefrefhChangesHistory();
+            //CompanyCurrent.RefreshChangesHistory();
             var f = Application.Current.Windows.OfType<Window>().Where(x => x.Name == "WindowCompanyD").SingleOrDefault(x => x.IsActive);
             var t = f as WindowCompany;
-            t.RefrefhChangesHistory();
+            t.RefreshChangesHistory();
         }
     }
 }

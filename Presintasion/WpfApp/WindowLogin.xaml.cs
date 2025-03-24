@@ -22,22 +22,20 @@ namespace WpfApp
     {
         private const string Login = "TheCotOfTehas";
         private const string Password = "1234";
-        private readonly DataServis dataServis;
+        private readonly DataServes dataServes;
         public WindowLogin()
         {
             InitializeComponent();
-            dataServis = new DataServis();
+            dataServes = new DataServes();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (LoginTextBox.Text == Login && PasswordTextBox.Password == Password)
             {
-                //MainWindow mainWindow = new MainWindow(dataServis);
-                NewWindow newWindow = new NewWindow(dataServis);
-                //mainWindow.Show();
-                newWindow.Show();
-                this.Close();
+                MainWindow mainWindow = new MainWindow(dataServes);
+                mainWindow.Show();
+                Close();
             }
             else
             {
