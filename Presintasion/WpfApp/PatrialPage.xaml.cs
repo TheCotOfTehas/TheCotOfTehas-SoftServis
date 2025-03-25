@@ -26,7 +26,6 @@ namespace WpfApp
     {
         ApplicationContext DataBase {  get; set; }
         Company CompanyCurrent { get; set; }
-
         DataServes Serves { get; set; }
 
 

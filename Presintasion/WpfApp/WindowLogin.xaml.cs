@@ -33,7 +33,7 @@ namespace WpfApp
         {
             if (LoginTextBox.Text == Login && PasswordTextBox.Password == Password)
             {
-                MainWindow mainWindow = new MainWindow(dataServes);
+                MainWindow mainWindow = new(dataServes);
                 mainWindow.Show();
                 Close();
             }

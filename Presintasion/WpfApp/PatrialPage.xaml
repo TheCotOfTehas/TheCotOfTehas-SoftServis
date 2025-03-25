@@ -17,10 +17,10 @@
             <TextBlock Name="CurrentMassegBox"  Padding="30 30 60 30" TextWrapping="Wrap"
          Text="{Binding Text, ElementName=root}"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Background="Red" FontSize="20" Content="X" Click="DeleteMessage">
+                <Button Background="Red" FontSize="15" Content="X" Click="DeleteMessage">
                     <Button.Resources>
                         <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="5"/>
+                            <Setter Property="CornerRadius" Value="10"/>
                         </Style>
                     </Button.Resources>
                 </Button>

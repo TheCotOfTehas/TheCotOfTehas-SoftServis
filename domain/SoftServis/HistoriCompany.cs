@@ -15,6 +15,7 @@ namespace SoftServis
         public HistoryCompany()
         {
             DateMessage = DateTime.Now;
+            Message = string.Empty;
         }
         public HistoryCompany(string message) : this()
         {

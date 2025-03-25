@@ -70,7 +70,7 @@ namespace WpfApp
                 Mails.Text = "Не задано";
 
             INN.Text = CompanyCurrent.INN.ToString();
-            ReadText();
+            AddHistoryOnPage();
         }
 
         private void Button_Save(object sender, RoutedEventArgs e)
@@ -83,7 +83,7 @@ namespace WpfApp
             MessageBox.Show("Информация сохранена");
         }
 
-        private void ReadText()
+        private void AddHistoryOnPage()
         {
             foreach (HistoryCompany item in CompanyCurrent.Histories)
             {
@@ -116,7 +116,7 @@ namespace WpfApp
         public void RefreshChangesHistory()
         {
             StackPanelHistori.Children.Clear();
-            ReadText();
+            AddHistoryOnPage();
         }
     }
 }

@@ -24,12 +24,12 @@ namespace WpfApp
     {
         ApplicationContext DataBase { get; set; }
 
-        private readonly DataServis Servis;
-        public MainWindow(DataServis dataServes)
+        private readonly DataServes Servis;
+        public MainWindow(DataServes dataServes)
         {
             InitializeComponent();
             Servis = dataServes;
-            Servis = new DataServis();
+            Servis = new DataServes();
             DataBase = new ApplicationContext();
             //MyInitBD();
             DataBase.SaveChanges();
@@ -72,7 +72,7 @@ namespace WpfApp
 
         private void Button_Click_Add_Company(object sender, RoutedEventArgs e)
         {
-            AddCompany addCompany = new AddCompany(DataBase);
+            AddCompany addCompany = new(DataBase);
             addCompany.Show();
         }
 
@@ -83,7 +83,7 @@ namespace WpfApp
 
         private void Button_OpenWindowCompany(object sender, RoutedEventArgs e)
         {
-            WindowCompany windowCompany = new WindowCompany(DataBase, Servis, 0);
+            WindowCompany windowCompany = new(DataBase, Servis, 0);
             windowCompany.Show();
         }
 

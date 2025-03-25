@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace SoftServis.Memory
 {
-    public class DataServis
+    public class DataServes
     {
         ApplicationContext DataBase { get; set; }
 
-        public DataServis()
+        public DataServes()
         {
             DataBase = new ApplicationContext();
         }
