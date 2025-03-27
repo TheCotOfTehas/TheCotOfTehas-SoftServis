@@ -73,6 +73,8 @@ namespace WpfApp
             AddHistoryOnPage();
         }
 
+        
+
         private void Button_Save(object sender, RoutedEventArgs e)
         {              
             CompanyCurrent.LongName = FullName.Text != null ? FullName.Text : "Не указано";
