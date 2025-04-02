@@ -10,6 +10,7 @@
         Background="AliceBlue"
         FontSize="28"
         ResizeMode="NoResize">
+
     <Border Margin="20">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -34,7 +35,7 @@
                    Margin="5 5 25 5"/>
             <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Padding="2" x:Name="LoginTextBox"/>
             <!--Пароль-->
-            <TextBlock Text="Пароль:" HorizontalAlignment="Right" 
+            <TextBlock Text="Пароль:"  HorizontalAlignment="Right" 
                    VerticalAlignment="Center" 
                    Grid.Row="2"
                    Margin="5 5 5 5"

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApp
 {
-    internal class MyMainWindow : ViewModel
+    internal class MainWindowModel : ViewModel
     {
         private string f_Text; 
 
