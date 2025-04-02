@@ -24,10 +24,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Include="App.xaml" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\domain\SoftServis\SoftServis.csproj" />
     <ProjectReference Include="..\..\Infrastructure\SoftServis.Menory\SoftServis.Memory.csproj" />
   </ItemGroup>
 
