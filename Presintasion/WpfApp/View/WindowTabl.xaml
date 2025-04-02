@@ -1,0 +1,61 @@
+﻿<Window x:Class="WpfApp.View.WindowTabl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.View"
+        mc:Ignorable="d"
+        Title="WindowTabl" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0">
+            <TabItem Name="UsersTab">
+                <TabItem.Header>
+                    <TextBlock Text="Staff"/>
+                </TabItem.Header>
+                <ListView>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name"></GridViewColumn>
+                            <GridViewColumn Header="SurName"></GridViewColumn>
+                            <GridViewColumn Header="Telefon"></GridViewColumn>
+                            <GridViewColumn Header="Addres"></GridViewColumn>
+                            <GridViewColumn Header="NameCompany"></GridViewColumn>
+                            <GridViewColumn Header="ShortNameCompany"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Name="PosetionTab2">
+                <TabItem.Header>
+                    <TextBlock Text="Staff"/>
+                </TabItem.Header>
+                <ListView>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name"></GridViewColumn>
+                            <GridViewColumn Header="SurName"></GridViewColumn>
+                            <GridViewColumn Header="Telefon"></GridViewColumn>
+                            <GridViewColumn Header="Addres"></GridViewColumn>
+                            <GridViewColumn Header="NameCompany"></GridViewColumn>
+                            <GridViewColumn Header="ShortNameCompany"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Name="Position">
+                <TabItem.Header>
+                    <TextBlock Text="Staff"/>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem Name="Deportament">
+                <TabItem.Header>
+                    <TextBlock Text="Staff"/>
+                </TabItem.Header>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
