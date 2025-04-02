@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApp
+namespace WpfApp.View
 {
     /// <summary>
-    /// Логика взаимодействия для WindowListCompany.xaml
+    /// Логика взаимодействия для Contacts.xaml
     /// </summary>
-    public partial class WindowListCompany : Window
+    public partial class Contacts : Window
     {
-        public WindowListCompany()
+        public Contacts()
         {
             InitializeComponent();
         }

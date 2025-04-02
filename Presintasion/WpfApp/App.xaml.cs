@@ -3,6 +3,7 @@ using SoftServis.Memory;
 using System.Configuration;
 using System.Data;
 using System.Windows;
+using WpfApp.View;
 
 namespace WpfApp
 {

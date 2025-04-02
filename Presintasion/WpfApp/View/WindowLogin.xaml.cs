@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApp
+namespace WpfApp.View
 {
     /// <summary>
     /// Логика взаимодействия для WindowLogin.xaml

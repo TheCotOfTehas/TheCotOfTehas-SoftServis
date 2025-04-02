@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApp
+namespace WpfApp.View
 {
     /// <summary>
-    /// Логика взаимодействия для Contacts.xaml
+    /// Логика взаимодействия для WindowAddMails.xaml
     /// </summary>
-    public partial class Contacts : Window
+    public partial class AddMails : Window
     {
-        public Contacts()
+        public AddMails()
         {
             InitializeComponent();
         }

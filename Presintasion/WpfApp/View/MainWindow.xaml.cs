@@ -15,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp.Model;
 
-namespace WpfApp
+namespace WpfApp.View
 {
     /// <summary>
     /// Логика взаимодействия для NewWindow.xaml

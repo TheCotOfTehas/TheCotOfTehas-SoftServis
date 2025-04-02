@@ -9,9 +9,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Views\" />
-    <Folder Include="Command\" />
+    <Compile Remove="Command\**" />
+    <Compile Remove="Controller\**" />
+    <Compile Remove="Views\**" />
+    <EmbeddedResource Remove="Command\**" />
+    <EmbeddedResource Remove="Controller\**" />
+    <EmbeddedResource Remove="Views\**" />
+    <None Remove="Command\**" />
+    <None Remove="Controller\**" />
+    <None Remove="Views\**" />
+    <Page Remove="Command\**" />
+    <Page Remove="Controller\**" />
+    <Page Remove="Views\**" />
   </ItemGroup>
 
   <ItemGroup>

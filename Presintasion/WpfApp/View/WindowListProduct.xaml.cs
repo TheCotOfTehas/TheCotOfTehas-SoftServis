@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace WpfApp
+namespace WpfApp.View
 {
     /// <summary>
     /// Логика взаимодействия для WindowListProduct.xaml
