@@ -29,7 +29,6 @@ namespace WpfApp.View
         {
             InitializeComponent();
             Servis = dataServes;
-            Servis = new DataServes();
             DataBase = new ApplicationContext();
             //MyInitBD();
             DataBase.SaveChanges();
@@ -41,11 +40,6 @@ namespace WpfApp.View
             DataBase.Database.EnsureCreated();
             List<Company> companies = WorkClass.GetContentBD();
             DataBase.AddRange(companies.ToArray());
-        }
-
-        private void Window_LoadedEmails(object sender, RoutedEventArgs e)
-        {
-            DataContext = DataBase.Companies.Local.ToObservableCollection();
         }
 
         private void GetCompanies_Click(object sender, RoutedEventArgs e)
@@ -61,11 +55,8 @@ namespace WpfApp.View
         private void GetEmail_Click(object sender, RoutedEventArgs e)
         {
             var mails = Servis.GetAllMail();
-            //var ListMails = DataBase.Companies.Select(x => x.Mails);
             foreach (var mail in mails)
-            {
                 InnerBox.Text += "\r\n" + mail.MailName;
-            }
         }
 
         private void Button_Click_Add_Company(object sender, RoutedEventArgs e)
