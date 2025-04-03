@@ -16,17 +16,21 @@ namespace SoftServis.Memory
             DataBase = new ApplicationContext();
         }
 
-        public IEnumerable<Mail> GetAllMailCompany(string name)
+        public IEnumerable<Mail> GetAllMailCompany(int id)
         {
-            if (name is null) return null;
-
             var currentCompany = DataBase.Companies
-                .Where(x => x.LongName == name)
+                .Where(x => x.Id == id)
                 .FirstOrDefault();
 
-            if (currentCompany is null) return null;
-
             return currentCompany.Mails;
+        }
+
+        public IEnumerable<Mail> GetAllMail()
+        {
+            var ListMails = DataBase.Companies.Select(x => x.Mails);
+            foreach (var mails in ListMails)
+                foreach (var mail in mails)
+                   yield return mail;
         }
 
         public Company GetCompany(int id)
@@ -41,5 +45,7 @@ namespace SoftServis.Memory
 
             return companyCurrent != null ? companyCurrent : new Company();
         }
+
+
     }
 }

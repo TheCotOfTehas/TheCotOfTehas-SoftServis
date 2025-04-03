@@ -60,13 +60,11 @@ namespace WpfApp.View
 
         private void GetEmail_Click(object sender, RoutedEventArgs e)
         {
-            var ListMails = DataBase.Companies.Select(x => x.Mails);
-            foreach (var mails in ListMails)
+            var mails = Servis.GetAllMail();
+            //var ListMails = DataBase.Companies.Select(x => x.Mails);
+            foreach (var mail in mails)
             {
-                foreach (var mail in mails)
-                {
-                    InnerBox.Text += "\r\n" + mail.MailName;
-                }
+                InnerBox.Text += "\r\n" + mail.MailName;
             }
         }
 
