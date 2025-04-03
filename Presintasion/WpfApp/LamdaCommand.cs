@@ -18,6 +18,12 @@ namespace WpfApp
         private readonly Action<object> f_Exequte;
         private readonly Func<object, bool> f_CanExecute;
 
+        public LambdaCommand(Action<object> Exequte, Func<object, bool> CanExecute = null)
+        {
+            f_Exequte = Exequte ?? throw new ArgumentNullException(nameof(Execute));
+            f_CanExecute = CanExecute;
+        }
+
         public bool CanExecute(object? parameter)
         {
             return f_CanExecute?.Invoke(parameter) ?? true;

@@ -16,13 +16,30 @@ namespace WpfApp.ViewModels
         ApplicationContext DataBase { get; set; }
 
         private readonly DataServes Servis;
-        public MainWindowModel(DataServes servis)
+
+        private string f_Text;
+
+        public string GetEmail
+        {
+            get => f_Text;
+            set => Set(ref f_Text, value);
+        }
+
+        //public MainWindowModel(DataServes servis)
+        //{
+        //    Servis = new DataServes();
+        //    DataBase = new ApplicationContext();
+        //    //MyInitBD();
+        //    DataBase.SaveChanges();
+        //    GetCompaniesCommand = new LambdaCommand(OnGetCompanies);
+        //}
+
+        public MainWindowModel()
         {
             Servis = new DataServes();
             DataBase = new ApplicationContext();
-            //MyInitBD();
             DataBase.SaveChanges();
-            //GetCompaniesCommand = new LambdaCommand();
+            GetCompaniesCommand = new LambdaCommand(OnGetCompanies);
         }
 
         private void MyInitBD()
@@ -34,13 +51,15 @@ namespace WpfApp.ViewModels
         }
         public ICommand GetCompaniesCommand { get; }
 
-        private void GetCompanies_Click(object sender, RoutedEventArgs e)
+        private void OnGetCompanies(object sender)
         {
             var ListCompany = DataBase.Companies.Select(x => x.ShortName);
 
+            var mails = Servis.GetAllMail();
+
             foreach (var company in ListCompany)
             {
-                //InnerBox.Text += "\r\n" + company;
+                f_Text += "\r\n" + company;
             }
         }
     }

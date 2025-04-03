@@ -3,9 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp.View"
+        xmlns:l="clr-namespace:WpfApp.ViewModels"
         mc:Ignorable="d"
         Title="NewWindow" Height="450" Width="800">
+    
+    <Window.DataContext>
+        <l:MainWindowModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <!--нулевая колонка-->
@@ -44,9 +49,11 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center" Content="Стартовое диалоговое окно получаем ( emails компании)"/>
         <Button x:Name="GetEmail" Grid.Row ="2" Grid.Column="1"
-                Margin="0 0 0 0" Click="GetEmail_Click" 
+                Margin="0 0 0 0" 
+
                 Width="90" Height="26" 
-                Content="Emails"/>
+                Content="Emails"
+                Command="{Binding OnGetCompanies}"/>
         <Button x:Name="GetCompanys" 
                 Grid.Row ="2" Grid.Column="3"
                 Width="90" Height="26" 
