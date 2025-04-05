@@ -17,12 +17,12 @@ namespace WpfApp.ViewModels
 
         private readonly DataServes Servis;
 
-        private string f_Text;
+        private string DialogTextBoxProperty;
 
-        public string GetEmail
+        public string DialogTextBox
         {
-            get => f_Text;
-            set => Set(ref f_Text, value);
+            get => DialogTextBoxProperty;
+            set => Set(ref DialogTextBoxProperty, value);
         }
 
         //public MainWindowModel(DataServes servis)
@@ -39,7 +39,8 @@ namespace WpfApp.ViewModels
             Servis = new DataServes();
             DataBase = new ApplicationContext();
             DataBase.SaveChanges();
-            GetCompaniesCommand = new LambdaCommand(OnGetCompanies);
+            GetCompanyCommand = new LambdaCommand(OnGetCompany);
+            GetMailsCommand = new LambdaCommand(OnGetMails);
         }
 
         private void MyInitBD()
@@ -49,18 +50,25 @@ namespace WpfApp.ViewModels
             List<Company> companies = WorkClass.GetContentBD();
             DataBase.AddRange(companies.ToArray());
         }
-        public ICommand GetCompaniesCommand { get; }
+        public ICommand GetCompanyCommand { get; }
+        public ICommand GetMailsCommand { get; }
 
-        private void OnGetCompanies(object sender)
+        private void OnGetCompany(object sender)
         {
             var ListCompany = DataBase.Companies.Select(x => x.ShortName);
-
-            var mails = Servis.GetAllMail();
+            DialogTextBox = "";
 
             foreach (var company in ListCompany)
-            {
-                f_Text += "\r\n" + company;
-            }
+                DialogTextBox += "\r\n" + company;
+        }
+
+        private void OnGetMails(object obj)
+        {
+            var mails = Servis.GetAllMail();
+            DialogTextBox = "";
+
+            foreach (var mail in mails)
+                DialogTextBox += "\r\n" + mail.MailName;
         }
     }
 }

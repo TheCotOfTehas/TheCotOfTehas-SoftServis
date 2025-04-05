@@ -11,19 +11,18 @@ namespace WpfApp
     internal class ViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        protected virtual void OnPropertyChanged([CallerMemberName] string PropertyName = null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected bool Set<T>(ref T field, T value, [CallerMemberName] string Property = null)
+        protected bool Set<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
-            if (field == null) 
-                throw new ArgumentNullException(nameof(field));
+            if (Equals(field, value))
+                return false;
 
-            if (Equals(field, value)) return false;
             field = value;
-            OnPropertyChanged(Property);
+            OnPropertyChanged(propertyName);
             return true;
         }
     }

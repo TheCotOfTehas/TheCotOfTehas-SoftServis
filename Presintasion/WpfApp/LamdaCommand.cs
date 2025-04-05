@@ -24,14 +24,14 @@ namespace WpfApp
             f_CanExecute = CanExecute;
         }
 
-        public bool CanExecute(object? parameter)
+        public bool CanExecute(object parameter)
         {
             return f_CanExecute?.Invoke(parameter) ?? true;
         }
 
         public void Execute(object? parameter)
         {
-            f_Exequte(parameter);
+            f_Exequte.Invoke(parameter);
         }
     }
 }

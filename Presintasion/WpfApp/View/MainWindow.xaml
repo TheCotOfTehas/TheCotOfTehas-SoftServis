@@ -50,35 +50,39 @@
             VerticalAlignment="Center" Content="Стартовое диалоговое окно получаем ( emails компании)"/>
         <Button x:Name="GetEmail" Grid.Row ="2" Grid.Column="1"
                 Margin="0 0 0 0" 
-
                 Width="90" Height="26" 
                 Content="Emails"
-                Command="{Binding OnGetCompanies}"/>
+                Command="{Binding GetMailsCommand}"/>
         <Button x:Name="GetCompanys" 
                 Grid.Row ="2" Grid.Column="3"
                 Width="90" Height="26" 
-                Click="GetCompanies_Click" Content="Companys"/>
+                Content="Companys"
+                Command="{Binding GetCompanyCommand}"/>
         <ScrollViewer Grid.Row="3" Grid.Column="1" 
                       Grid.ColumnSpan="4" Grid.RowSpan="7">
-            <TextBox x:Name="InnerBox" Background="LightCyan" Text="Тут будет выводиться инфа" 
-                 FontSize="20" TextWrapping="Wrap" Margin="5 5 5 5"/>
+            <TextBox x:Name="InnerBox" 
+                     Background="LightCyan" 
+                     Text="{Binding DialogTextBox, UpdateSourceTrigger=PropertyChanged}"
+                     FontSize="20" 
+                     TextWrapping="Wrap" 
+                     Margin="5 5 5 5"/>
         </ScrollViewer>
         <TextBox x:Name="NewOpenCompany" 
                  Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"
                  Background="LightCyan" Text="" 
                  Height="30" FontSize="20" TextWrapping="Wrap"/>
-        <Button Margin="2 10 0 0" Click="OpenCompany_Click" 
+        <Button Margin="2 10 0 0"  
                 Grid.Row="10" Grid.Column="4" Content="Открыть"
                 Background="LightGreen" Height="30" FontSize="20"/>
 
         <Button Content="Добавить Компанию" HorizontalAlignment="Left" 
                 Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2"
                 VerticalAlignment="Top" Width="145" 
-                Height="30" Click="Button_Click_Add_Company"/>
+                Height="30"/>
         <Button Content="Добавить почту" HorizontalAlignment="Left" 
                 Grid.Row="3" Grid.Column="8" Grid.ColumnSpan="2" 
                 VerticalAlignment="Center" Width="145" 
-                Height="30" Click="Button_Click_Add_Mails"/>
+                Height="30"/>
     </Grid>
     
 </Window>
