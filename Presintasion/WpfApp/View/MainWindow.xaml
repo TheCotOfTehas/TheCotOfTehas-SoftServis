@@ -78,7 +78,8 @@
         <Button Content="Добавить Компанию" HorizontalAlignment="Left" 
                 Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2"
                 VerticalAlignment="Top" Width="145" 
-                Height="30"/>
+                Height="30"
+                Command="{Binding AddCompanyCommand}"/>
         <Button Content="Добавить почту" HorizontalAlignment="Left" 
                 Grid.Row="3" Grid.Column="8" Grid.ColumnSpan="2" 
                 VerticalAlignment="Center" Width="145" 

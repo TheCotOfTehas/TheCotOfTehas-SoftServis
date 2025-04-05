@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using WpfApp.Model;
+using WpfApp.View;
 
 namespace WpfApp.ViewModels
 {
@@ -41,6 +42,7 @@ namespace WpfApp.ViewModels
             DataBase.SaveChanges();
             GetCompanyCommand = new LambdaCommand(OnGetCompany);
             GetMailsCommand = new LambdaCommand(OnGetMails);
+            AddCompanyCommand = new LambdaCommand(OnAddCompany);
         }
 
         private void MyInitBD()
@@ -52,6 +54,7 @@ namespace WpfApp.ViewModels
         }
         public ICommand GetCompanyCommand { get; }
         public ICommand GetMailsCommand { get; }
+        public ICommand AddCompanyCommand { get; }
 
         private void OnGetCompany(object sender)
         {
@@ -69,6 +72,12 @@ namespace WpfApp.ViewModels
 
             foreach (var mail in mails)
                 DialogTextBox += "\r\n" + mail.MailName;
+        }
+
+        private void OnAddCompany(object obj)
+        {
+            AddCompany addCompany = new(DataBase);
+            addCompany.Show();
         }
     }
 }
