@@ -33,15 +33,6 @@ namespace WpfApp.ViewModels
             set  => Set(ref InputDialogTextBoxProperty, value);
         }
 
-        //public MainWindowModel(DataServes servis)
-        //{
-        //    Servis = new DataServes();
-        //    DataBase = new ApplicationContext();
-        //    //MyInitBD();
-        //    DataBase.SaveChanges();
-        //    GetCompaniesCommand = new LambdaCommand(OnGetCompanies);
-        //}
-
         public MainWindowModel()
         {
             Servis = new DataServes();
