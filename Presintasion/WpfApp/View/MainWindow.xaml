@@ -69,11 +69,12 @@
         </ScrollViewer>
         <TextBox x:Name="NewOpenCompany" 
                  Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3"
-                 Background="LightCyan" Text="" 
+                 Background="LightCyan" Text="{Binding InputDialogTextBox, UpdateSourceTrigger=PropertyChanged}" 
                  Height="30" FontSize="20" TextWrapping="Wrap"/>
         <Button Margin="2 10 0 0"  
                 Grid.Row="10" Grid.Column="4" Content="Открыть"
-                Background="LightGreen" Height="30" FontSize="20"/>
+                Background="LightGreen" Height="30" FontSize="20"
+                Command="{Binding OpenCompanyCommand}"/>
 
         <Button Content="Добавить Компанию" HorizontalAlignment="Left" 
                 Grid.Row="2" Grid.Column="8" Grid.ColumnSpan="2"

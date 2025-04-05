@@ -19,11 +19,18 @@ namespace WpfApp.ViewModels
         private readonly DataServes Servis;
 
         private string DialogTextBoxProperty;
+        private string InputDialogTextBoxProperty;
 
         public string DialogTextBox
         {
             get => DialogTextBoxProperty;
             set => Set(ref DialogTextBoxProperty, value);
+        }
+
+        public string InputDialogTextBox
+        {
+            get => InputDialogTextBoxProperty;
+            set  => Set(ref InputDialogTextBoxProperty, value);
         }
 
         //public MainWindowModel(DataServes servis)
@@ -43,6 +50,7 @@ namespace WpfApp.ViewModels
             GetCompanyCommand = new LambdaCommand(OnGetCompany);
             GetMailsCommand = new LambdaCommand(OnGetMails);
             AddCompanyCommand = new LambdaCommand(OnAddCompany);
+            OpenCompanyCommand = new LambdaCommand(OnOpenWindowCompany);
         }
 
         private void MyInitBD()
@@ -55,6 +63,7 @@ namespace WpfApp.ViewModels
         public ICommand GetCompanyCommand { get; }
         public ICommand GetMailsCommand { get; }
         public ICommand AddCompanyCommand { get; }
+        public  ICommand OpenCompanyCommand { get; }
 
         private void OnGetCompany(object sender)
         {
@@ -78,6 +87,22 @@ namespace WpfApp.ViewModels
         {
             AddCompany addCompany = new(DataBase);
             addCompany.Show();
+        }
+
+        private void OnOpenWindowCompany(object obj)
+        {
+            var listCompany = DataBase.Companies;
+            var nameCompany = InputDialogTextBoxProperty;
+            var company = listCompany.FirstOrDefault(x => x.ShortName.CompareTo(nameCompany) == 0);
+            if (company != null)
+            {
+                var windowCompany = new WindowCompany(DataBase, Servis, company.Id);
+                windowCompany.Show();
+            }
+            else
+            {
+                MessageBox.Show("Данная Компания в базе не найдена попробуйте снова!!!");
+            }
         }
     }
 }
