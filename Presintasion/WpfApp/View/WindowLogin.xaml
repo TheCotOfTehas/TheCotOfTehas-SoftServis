@@ -3,13 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp.View"
+        xmlns:l="clr-namespace:WpfApp.ViewModels"
         mc:Ignorable="d"
         Title="LoginPage"
         Height="300" Width="450"
         Background="AliceBlue"
         FontSize="28"
         ResizeMode="NoResize">
+
+    <Window.DataContext>
+        <l:WindowLoginModel/>
+        
+    </Window.DataContext>
 
     <Border Margin="20">
         <Grid>
@@ -33,22 +38,29 @@
                    VerticalAlignment="Center" 
                    Grid.Row="1"
                    Margin="5 5 25 5"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Padding="2" x:Name="LoginTextBox"/>
+            <TextBox Grid.Row="1" Grid.Column="1" 
+                   Margin="5" Padding="2" 
+                   x:Name="LoginTextBox"
+                   Text="{Binding LoginTextBox}"/>
             <!--Пароль-->
             <TextBlock Text="Пароль:"  HorizontalAlignment="Right" 
                    VerticalAlignment="Center" 
                    Grid.Row="2"
                    Margin="5 5 5 5"
                    Padding="2"/>
-            <PasswordBox Grid.Row="2" Grid.Column="2" Margin="5" Padding="2" x:Name="PasswordTextBox" PasswordChanged="PasswordTextBox_PasswordChanged"/>
+            <TextBox Grid.Row="2" Grid.Column="2" 
+                   Margin="5" Padding="2" 
+                   x:Name="PasswordTextBox"
+                   Text="{Binding PasswordTextBox}"/>
+
             <!--Кнопка-->
-            <Button Content = "Авторизация" Grid.Row="3" 
-                    Grid.ColumnSpan="2" 
+            <Button Content = "Авторизация" 
+                    Grid.Row="3" Grid.ColumnSpan="2" 
                     Margin="80 10 80 2" 
                     IsDefault="True" 
-                    Click="Button_Click"
-                    IsEnabled="False"
-                    x:Name="ButtonAuthorization"/>
+                    IsEnabled="{Binding AuthorizationTextBox}"
+                    x:Name="ButtonAuthorization"
+                    Command="{Binding AuthorizationCommand}"/>
         </Grid>
     </Border>
 </Window>

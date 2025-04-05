@@ -20,40 +20,39 @@ namespace WpfApp.View
     /// </summary>
     public partial class WindowLogin : Window
     {
-        private const string Login = "TheCotOfTehas";
-        private const string Password = "1234";
-        private readonly DataServes dataServes;
+        //private const string Login = "TheCotOfTehas";
+        //private const string Password = "1234";
+        //private readonly DataServes dataServes;
         public WindowLogin()
         {
             InitializeComponent();
-            dataServes = new DataServes();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (LoginTextBox.Text == Login && PasswordTextBox.Password == Password)
-            {
-                MainWindow mainWindow = new();
-                mainWindow.Show();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Неверный логин или пароль");
-            }
-        }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (LoginTextBox.Text == Login && PasswordTextBox.Password == Password)
+        //    {
+        //        MainWindow mainWindow = new();
+        //        mainWindow.Show();
+        //        Close();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Неверный логин или пароль");
+        //    }
+        //}
 
-        /// <summary>
-        /// Активация кнопки авторизации
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void PasswordTextBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(LoginTextBox.Text))
-            {
-                ButtonAuthorization.IsEnabled = true;
-            }
-        }
+        ///// <summary>
+        ///// Активация кнопки авторизации
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void PasswordTextBox_PasswordChanged(object sender, RoutedEventArgs e)
+        //{
+        //    if (!string.IsNullOrEmpty(LoginTextBox.Text))
+        //    {
+        //        ButtonAuthorization.IsEnabled = true;
+        //    }
+        //}
     }
 }
