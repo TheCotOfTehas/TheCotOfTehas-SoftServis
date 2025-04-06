@@ -14,10 +14,6 @@ namespace WpfApp.ViewModels
 {
     internal class MainWindowModel : ViewModel
     {
-        ApplicationContext DataBase { get; set; }
-
-        private readonly DataServes Servis;
-
         private string DialogTextBoxProperty;
         private string InputDialogTextBoxProperty;
 
@@ -35,9 +31,6 @@ namespace WpfApp.ViewModels
 
         public MainWindowModel()
         {
-            Servis = new DataServes();
-            DataBase = new ApplicationContext();
-            DataBase.SaveChanges();
             GetCompanyCommand = new LambdaCommand(OnGetCompany);
             GetMailsCommand = new LambdaCommand(OnGetMails);
             AddCompanyCommand = new LambdaCommand(OnAddCompany);
@@ -65,9 +58,9 @@ namespace WpfApp.ViewModels
                 DialogTextBox += "\r\n" + company;
         }
 
-        private void OnGetMails(object obj)
+        private void OnGetMails(object sender)
         {
-            var mails = Servis.GetAllMail();
+            var mails = Serves.GetAllMail();
             DialogTextBox = "";
 
             foreach (var mail in mails)
@@ -76,7 +69,7 @@ namespace WpfApp.ViewModels
 
         private void OnAddCompany(object obj)
         {
-            AddCompany addCompany = new(DataBase);
+            WindowAddCompany addCompany = new();
             addCompany.Show();
         }
 
@@ -87,7 +80,7 @@ namespace WpfApp.ViewModels
             var company = listCompany.FirstOrDefault(x => x.ShortName.CompareTo(nameCompany) == 0);
             if (company != null)
             {
-                var windowCompany = new WindowCompany(DataBase, Servis, company.Id);
+                var windowCompany = new WindowCompany(DataBase, Serves, company.Id);
                 windowCompany.Show();
             }
             else

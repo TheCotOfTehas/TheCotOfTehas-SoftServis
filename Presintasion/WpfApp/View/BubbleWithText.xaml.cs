@@ -1,5 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 
 namespace WpfApp.View
@@ -13,16 +12,5 @@ namespace WpfApp.View
         {
             InitializeComponent();
         }
-
-        //#region dp string Text
-        //public string Text
-        //{
-        //    get { return (string)GetValue(TextProperty); }
-        //    set { SetValue(TextProperty, value); }
-        //}
-
-        //public static readonly DependencyProperty TextProperty =
-        //    DependencyProperty.Register("Text", typeof(string), typeof(BubbleWithText));
-        //#endregion
     }
 }

@@ -22,53 +22,11 @@ namespace WpfApp.View
     /// <summary>
     /// Логика взаимодействия для AddCompany.xaml
     /// </summary>
-    public partial class AddCompany : Window
+    public partial class WindowAddCompany : Window
     {
-        ApplicationContext DataBase = new ApplicationContext();
-        DataServes dataServis;
-        public AddCompany(ApplicationContext dataBase)
+        public WindowAddCompany()
         {
             InitializeComponent();
-            DataBase = dataBase;
-            DataBase.SaveChanges();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            var company = new Company();
-            var longName = LongName.Text;
-            var shortName = ShortName.Text;
-            var description = Description.Text;
-            var telephone = Telephone.Text;
-            company.LongName = longName;
-            company.ShortName = shortName;
-            company.Description = description;
-
-            if (ValidityPhone(telephone))
-            {
-                var digits  = int.Parse(telephone);
-                var currentTelephone = new Telephone();
-                currentTelephone.Numder = digits;
-                company.Telephones.Add(currentTelephone);
-            }
-
-            DataBase.Companies.Add(company);
-            DataBase.SaveChanges();
-            this.Close();
-            MessageBox.Show("Вы добавили данные в базу");
-            UpdateLayout();
-        }
-
-        private bool ValidityPhone(string telephone)
-        {
-            if (telephone.IsNullOrEmpty())
-                return false;
-
-            foreach (var symbol in telephone)
-                if (!char.IsDigit(symbol))
-                    return false;
-
-            return true;
         }
     }
 }
