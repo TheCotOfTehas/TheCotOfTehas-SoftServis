@@ -14,7 +14,6 @@ namespace WpfApp.ViewModels
     {
         private const string Login = "TheCotOfTehas";
         private const string Password = "1234";
-        private readonly DataServes dataServes;
 
         private string LoginProperty;
         private string PasswordProperty;
