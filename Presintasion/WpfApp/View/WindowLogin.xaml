@@ -13,7 +13,6 @@
 
     <Window.DataContext>
         <l:WindowLoginModel/>
-        
     </Window.DataContext>
 
     <Border Margin="20">

@@ -1,7 +1,9 @@
-﻿using SoftServis.Memory;
+﻿using SoftServis;
+using SoftServis.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -46,13 +48,13 @@ namespace WpfApp.ViewModels
         public ICommand PasswordChangedCommand {  get; }
         public ICommand AuthorizationCommand { get; }
 
-        private void OnAuthorization(object sender)
+        private void OnAuthorization(object sender) //Added loginWindow Parameter
         {
             if (LoginProperty == Login && PasswordTextBox == Password)
             {
                 MainWindow mainWindow = new();
                 mainWindow.Show();
-                //Close();
+                CloseAction();
             }
             else
             {
